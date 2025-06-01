@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nowy Kalkulator Rabatów | Sklep Fanowski F1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/kalkulator.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section>
+            <h2>Nowy Kalkulator Rabatów F1</h2>
+            <p>Sprawdź, jak duży rabat możesz uzyskać na swoje ulubione produkty F1! Nasz inteligentny kalkulator uwzględnia ilość przedmiotów, ich wartość, przynależność zespołową oraz powtórzenia produktów.</p>
+            
+            <div class="calculator-page">
+                <div class="calculator-header">
+                    <h3>Symulator Rabatu F1</h3>
+                    <p>Dodaj produkty i sprawdź swój potencjalny rabat</p>
+                </div>
+                
+                <div class="calculator-body">
+                    <div class="product-selection">
+                        <h4>Wybierz produkty do kalkulacji</h4>
+                        
+                        <select id="product-dropdown" class="product-dropdown">
+                            <option value="" disabled selected>-- Wybierz produkt --</option>
+                            <!-- Opcje będą dodane przez JavaScript -->
+                        </select>
+                        
+                        <button id="add-product-btn" class="add-product-btn">
+                            <i class="fa fa-plus"></i> Dodaj produkt do kalkulacji
+                        </button>
+                        
+                        <ul id="product-list" class="product-list">
+                            <li class="empty-list">Nie wybrano jeszcze żadnych produktów</li>
+                        </ul>
+                        
+                        <button id="calculate-btn" class="calculate-btn">
+                            Oblicz potencjalny rabat
+                        </button>
+                    </div>
+                    
+                    <div class="calculation-results">
+                        <div class="discount-title">
+                            <h4>Wynik kalkulacji rabatu</h4>
+                            <p>Dodaj produkty i kliknij przycisk "Oblicz potencjalny rabat"</p>
+                        </div>
+                        
+                        <div class="discount-progress">
+                            <div class="progress-label">
+                                <span class="label">Twój rabat:</span>
+                                <span class="value" id="discount-percentage">0%</span>
+                            </div>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar" id="discount-progress-bar"></div>
+                            </div>
+                            <div class="factor-hint">Maksymalny możliwy rabat: 30%</div>
+                        </div>
+                        
+                        <div class="discount-factors">
+                            <div class="factor" id="quantity-factor">
+                                <div class="factor-header">
+                                    <span class="title">Ilość przedmiotów</span>
+                                    <span class="discount">0%</span>
+                                </div>
+                                <div class="factor-description">Liczba przedmiotów: 0</div>
+                                <div class="factor-hint">1-2: 0%, 3-4: 5%, 5-7: 10%, 8+: 15%</div>
+                            </div>
+                            
+                            <div class="factor" id="value-factor">
+                                <div class="factor-header">
+                                    <span class="title">Wartość przedmiotów</span>
+                                    <span class="discount">0%</span>
+                                </div>
+                                <div class="factor-description">Wartość koszyka: 0.00 zł</div>
+                                <div class="factor-hint">Do 300 zł: 0%, 301-800 zł: 3%, 801-1500 zł: 5%, 1501+ zł: 8%</div>
+                            </div>
+                            
+                            <div class="factor" id="team-factor">
+                                <div class="factor-header">
+                                    <span class="title">Przynależność zespołowa</span>
+                                    <span class="discount">0%</span>
+                                </div>
+                                <div class="factor-description">Brak wybranych produktów</div>
+                                <div class="factor-hint">Różne zespoły: 0%, 2 produkty tego samego zespołu: 3%, 3+: 7%</div>
+                            </div>
+                            
+                            <div class="factor" id="repeat-factor">
+                                <div class="factor-header">
+                                    <span class="title">Powtórzenia produktów</span>
+                                    <span class="discount">0%</span>
+                                </div>
+                                <div class="factor-description">Brak powtórzeń</div>
+                                <div class="factor-hint">2 sztuki tego samego produktu: 5%, 3+ sztuk: 10%</div>
+                            </div>
+                        </div>
+                        
+                        <div class="summary" id="summary" style="display:none;">
+                            <div class="summary-row">
+                                <span class="label">Wartość produktów:</span>
+                                <span class="value" id="total-value">0.00 zł</span>
+                            </div>
+                            <div class="summary-row">
+                                <span class="label">Kwota rabatu:</span>
+                                <span class="value" id="discount-value">0.00 zł</span>
+                            </div>
+                            <div class="total-row">
+                                <span class="label">Do zapłaty:</span>
+                                <span class="value" id="final-price">0.00 zł</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="../js/kalkulator.js"></script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

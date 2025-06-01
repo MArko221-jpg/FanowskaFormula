@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tory Formuły 1 - Interaktywna Mapa</title>
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/mapa.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>🏎️ Tory Formuły 1</h1>
+        <p class="subtitle">Kliknij na czerwone markery, aby poznać szczegóły poszczególnych torów</p>
+        
+        <section>
+            <div class="instructions">
+                <strong>Instrukcja:</strong> Na mapie zaznaczono 6 słynnych torów Formuły 1. Kliknij na czerwone kółka, aby wyświetlić informacje o każdym torze, włączając długość, liczbę zakrętów, rekord okrążenia i inne ciekawostki.
+            </div>
+            
+            <div class="map-container">
+                <img src="../mapa\A_large_blank_world_map_with_oceans_marked_in_blue.svg.png" alt="Mapa świata" class="world-map" usemap="#circuitMap" id="worldMap">
+                
+                <!-- Markery torów F1 -->
+                <div class="circuit-marker" style="top: 25%; left: 42%;" onclick="showCircuitInfo('monaco')" title="Monaco"></div>
+                <div class="circuit-marker" style="top: 24%; left: 43%;" onclick="showCircuitInfo('monza')" title="Monza, Włochy"></div>
+                <div class="circuit-marker" style="top: 21%; left: 40%;" onclick="showCircuitInfo('silverstone')" title="Silverstone, Wielka Brytania"></div>
+                <div class="circuit-marker" style="top: 31%; left: 78%;" onclick="showCircuitInfo('suzuka')" title="Suzuka, Japonia"></div>
+                <div class="circuit-marker" style="top: 78%; left: 80%;" onclick="showCircuitInfo('melbourne')" title="Melbourne, Australia"></div>
+                <div class="circuit-marker" style="top: 68%; left: 27%;" onclick="showCircuitInfo('interlagos')" title="Interlagos, Brazylia"></div>
+            </div>
+        </section>
+        
+        <section class="info-panel">
+            <div id="default-info" class="circuit-info active">
+                <h3>🏁 Witaj w świecie Formuły 1!</h3>
+                <p>Formuła 1 to najbardziej prestiżowa seria wyścigów samochodowych na świecie. Kliknij na markery na mapie, aby poznać najsłynniejsze tory F1 z całego świata.</p>
+                <p><strong>Zaznaczone tory:</strong> Monaco, Monza, Silverstone, Suzuka, Melbourne, Interlagos</p>
+            </div>
+            
+            <div id="monaco-info" class="circuit-info">
+                <h3>🏰 Monaco - Circuit de Monaco</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">3,337 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">19</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:12.909 (Lewis Hamilton)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1950</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> Najsłynniejszy i najbardziej prestiżowy tor F1. Wyścig odbywa się ulicami Monte Carlo, a kierowcy pędzą między barierkami z prędkością ponad 250 km/h!</p>
+            </div>
+            
+            <div id="monza-info" class="circuit-info">
+                <h3>🇮🇹 Monza - Autodromo Nazionale di Monza</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">5,793 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">11</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:21.046 (Rubens Barrichello)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1950</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> "Świątynia prędkości" - najszybszy tor w kalendarzu F1. Słynny z długich prostych i minimalnego dociskania, gdzie bolidy osiągają prędkości ponad 350 km/h!</p>
+            </div>
+            
+            <div id="silverstone-info" class="circuit-info">
+                <h3>🇬🇧 Silverstone - Silverstone Circuit</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">5,891 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:27.097 (Max Verstappen)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1950</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> "Dom Formuły 1" - tu odbył się pierwszy oficjalny wyścig F1 w historii! Słynne szybkie zakręty jak Maggotts, Becketts i Copse to prawdziwe wyzwanie dla kierowców.</p>
+            </div>
+            
+            <div id="suzuka-info" class="circuit-info">
+                <h3>🇯🇵 Suzuka - Suzuka International Racing Course</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">5,807 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:30.983 (Lewis Hamilton)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1987</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> Jedyny tor typu "ósemka" w F1! Słynny z technicznych wyzwań i spektakularnych przejażdżek. Tu rozstrzygnęło się wiele mistrzostw świata!</p>
+            </div>
+            
+            <div id="melbourne-info" class="circuit-info">
+                <h3>🇦🇺 Melbourne - Albert Park Circuit</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">5,278 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">14</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:20.260 (Charles Leclerc)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1996</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> Tradycyjnie pierwszy wyścig sezonu F1! Tor przebiega wokół jeziora Albert Park w centrum Melbourne. Znany z pięknych widoków i nieoczekiwanych zwrotów akcji.</p>
+            </div>
+            
+            <div id="interlagos-info" class="circuit-info">
+                <h3>🇧🇷 Interlagos - Autódromo José Carlos Pace</h3>
+                <div class="circuit-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Długość</div>
+                        <div class="detail-value">4,309 km</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Zakręty</div>
+                        <div class="detail-value">15</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rekord okrążenia</div>
+                        <div class="detail-value">1:10.540 (Valtteri Bottas)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pierwszy wyścig F1</div>
+                        <div class="detail-value">1973</div>
+                    </div>
+                </div>
+                <p><strong>Ciekawostka:</strong> "Mekka brazylijskiej F1" - domowy tor Ayrtona Senny! Położony 800m n.p.m., często pada deszcz, co czyni wyścigi nieprzewidywalnymi i ekscytującymi.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function showCircuitInfo(circuitId) {
+            // Ukryj wszystkie panele informacyjne
+            const allInfos = document.querySelectorAll('.circuit-info');
+            allInfos.forEach(info => {
+                info.classList.remove('active');
+            });
+            
+            // Pokaż wybrany panel
+            const selectedInfo = document.getElementById(circuitId + '-info');
+            if (selectedInfo) {
+                selectedInfo.classList.add('active');
+            }
+            
+            // Animacja markera
+            const markers = document.querySelectorAll('.circuit-marker');
+            markers.forEach(marker => {
+                marker.classList.remove('pulse');
+            });
+            
+            // Znajdź kliknięty marker i dodaj animację
+            event.target.classList.add('pulse');
+            
+            // Scroll do panelu informacyjnego na urządzeniach mobilnych
+            if (window.innerWidth <= 768) {
+                document.querySelector('.info-panel').scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+        
+        // Inicjalizacja - dodaj efekt hover do markerów
+        document.addEventListener('DOMContentLoaded', function() {
+            const markers = document.querySelectorAll('.circuit-marker');
+            markers.forEach(marker => {
+                marker.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.2)';
+                });
+                
+                marker.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('pulse')) {
+                        this.style.transform = 'scale(1)';
+                    }
+                });
+            });
+        });
+        
+        // Responsive behavior dla małych ekranów
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                // Reset scroll na większych ekranach
+                window.scrollTo(0, 0);
+            }
+        });
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

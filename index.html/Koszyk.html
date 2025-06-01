@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszyk - Sklep Fanowski F1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/styleKoszyk.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section>
+            <div class="cart-header">
+                <h2>🛒 Twój koszyk</h2>
+                <div>
+                    <button class="clear-cart-btn" onclick="clearCart()">Wyczyść koszyk</button>
+                </div>
+            </div>
+            
+            <!-- Debug info - usuń w produkcji -->
+            <div class="debug-info" id="debug-info" style="display: none;">
+                <strong>Debug Info:</strong><br>
+                localStorage content: <span id="debug-storage"></span><br>
+                Cart items: <span id="debug-cart"></span>
+            </div>
+            
+            <div id="cart-content">
+                <!-- Zawartość koszyka będzie wstawiana przez JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal potwierdzenia -->
+    <div class="modal" id="order-modal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-title">✅ Zamówienie złożone!</div>
+            <p>Dziękujemy za zakup! Twoje zamówienie zostało przyjęte do realizacji.</p>
+            <p>Numer zamówienia: <strong id="order-number"></strong></p>
+            <button class="checkout-button" onclick="closeModal()">OK</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Dane produktów (identyczne z tymi w Sklep.html)
+        const products = [
+            {
+                id: 1,
+                name: "Bluza Williams Racing",
+                price: 329.99,
+                image: "sklep/bluza williams.jpg",
+                description: "Ciepła bluza z kapturem w barwach Williams Racing",
+                category: "clothing",
+                team: "Williams"
+            },
+            {
+                id: 2,
+                name: "Czapka Red Bull Racing",
+                price: 149.99,
+                image: "sklep/czapkaRB.jpg",
+                description: "Czapka z daszkiem w barwach zespołu Red Bull Racing",
+                category: "clothing",
+                team: "Red Bull Racing"
+            },
+            {
+                id: 3,
+                name: "Model kasku Charles Leclerc 1:2",
+                price: 499.99,
+                image: "sklep/kaskferrara.jpg",
+                description: "Kolekcjonerski model kasku Charlesa Leclerca w skali 1:2",
+                category: "models",
+                team: "Ferrari"
+            },
+            {
+                id: 4,
+                name: "Kubek Mercedes AMG",
+                price: 79.99,
+                image: "sklep/kubekMERC.jpg",
+                description: "Ceramiczny kubek w barwach zespołu Mercedes AMG Petronas",
+                category: "accessories",
+                team: "Mercedes"
+            },
+            {
+                id: 5,
+                name: "Flagi Alpine F1 Team",
+                price: 129.99,
+                image: "sklep/flaga alpine.png",
+                description: "Zestaw flag kibica zespołu Alpine F1 Team",
+                category: "accessories",
+                team: "Alpine"
+            },
+            {
+                id: 6,
+                name: "Plakat GP Monaco 2025",
+                price: 89.99,
+                image: "sklep/gp monako.jpg",
+                description: "Oficjalny plakat Grand Prix Monaco 2025",
+                category: "memorabilia",
+                team: "Various"
+            },
+            {
+                id: 7,
+                name: "Koszulka Replika Max Verstappen",
+                price: 299.99,
+                image: "sklep/koszulka max.jpg",
+                description: "Replika koszulki Maxa Verstappena z sezonu 2025",
+                category: "clothing",
+                team: "Red Bull Racing"
+            },
+            {
+                id: 8,
+                name: "Zestaw modeli F1 2025",
+                price: 1799.99,
+                image: "sklep/modele f1.jpg",
+                description: "Komplet modeli wszystkich bolidów sezonu 2025 w skali 1:43",
+                category: "models",
+                team: "Various"
+            },
+            {
+                id: 9,
+                name: "Rękawice wyścigowe F1",
+                price: 199.99,
+                image: "sklep/rekawice LH.jpg",
+                description: "Profesjonalne rękawice wyścigowe w stylu F1",
+                category: "accessories",
+                team: "Various"
+            },
+            {
+                id: 10,
+                name: "Koszulka McLaren Team",
+                price: 249.99,
+                image: "sklep/tshirtMcla.jpg",
+                description: "Oficjalna koszulka zespołu McLaren na sezon 2025",
+                category: "clothing",
+                team: "McLaren"
+            },
+            {
+                id: 11,
+                name: "Smycz Alpine F1",
+                price: 39.99,
+                image: "sklep/brelokAM.jpg",
+                description: "Smycz do kluczy zespołu Aston Martin F1 Team",
+                category: "accessories",
+                team: "Aston Martin"
+            },
+            {
+               id: 12,
+                name: "Model Ferrari SF-25 1:18",
+                price: 599.99,
+                image: "sklep/s-l1200.jpg",
+                description: "Kolekcjonerski model bolidu Ferrari z sezonu 2025 w skali 1:18",
+                category: "models",
+                team: "Ferrari"
+            }
+        ];
+
+        // Funkcje zarządzania koszykiem
+        function getCart() {
+            try {
+                const cartData = localStorage.getItem('f1_cart');
+                console.log('Raw cart data from localStorage:', cartData);
+                
+                if (!cartData || cartData === 'null') {
+                    console.log('No cart data found, returning empty array');
+                    return [];
+                }
+                
+                const parsedCart = JSON.parse(cartData);
+                console.log('Parsed cart data:', parsedCart);
+                return Array.isArray(parsedCart) ? parsedCart : [];
+            } catch (error) {
+                console.error('Error reading cart from localStorage:', error);
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            try {
+                console.log('Saving cart to localStorage:', cart);
+                localStorage.setItem('f1_cart', JSON.stringify(cart));
+            } catch (error) {
+                console.error('Error saving cart to localStorage:', error);
+            }
+        }
+
+        function updateQuantity(productId, newQuantity) {
+            console.log(`Updating quantity for product ${productId} to ${newQuantity}`);
+            let cart = getCart();
+            const item = cart.find(item => item.id === productId);
+            
+            if (item) {
+                if (newQuantity <= 0) {
+                    removeFromCart(productId);
+                } else {
+                    item.quantity = newQuantity;
+                    saveCart(cart);
+                    displayCart();
+                }
+            }
+        }
+
+        function removeFromCart(productId) {
+            console.log(`Removing product ${productId} from cart`);
+            let cart = getCart();
+            cart = cart.filter(item => item.id !== productId);
+            saveCart(cart);
+            displayCart();
+        }
+
+        function clearCart() {
+            if (confirm('Czy na pewno chcesz wyczyścić cały koszyk?')) {
+                console.log('Clearing cart');
+                localStorage.removeItem('f1_cart');
+                displayCart();
+            }
+        }
+
+        function displayCart() {
+            console.log('Displaying cart...');
+            const cart = getCart();
+            const cartContent = document.getElementById('cart-content');
+            
+            // Debug info
+            const debugInfo = document.getElementById('debug-info');
+            const debugStorage = document.getElementById('debug-storage');
+            const debugCart = document.getElementById('debug-cart');
+            
+            if (debugStorage && debugCart) {
+                debugStorage.textContent = localStorage.getItem('f1_cart') || 'null';
+                debugCart.textContent = JSON.stringify(cart);
+                // Pokaż debug info jeśli jest parametr w URL
+                if (window.location.search.includes('debug=1')) {
+                    debugInfo.style.display = 'block';
+                }
+            }
+
+            console.log('Cart contents:', cart);
+            console.log('Cart length:', cart.length);
+
+            if (!cart || cart.length === 0) {
+                cartContent.innerHTML = `
+                    <div class="cart-empty-page">
+                        <h3>Twój koszyk jest pusty</h3>
+                        <p>Dodaj produkty z naszego sklepu, aby kontynuować zakupy.</p>
+                        <a href="Sklep.html" class="button">Przejdź do sklepu</a>
+                    </div>
+                `;
+                return;
+            }
+
+            let cartHTML = `
+                <table class="cart-table">
+                    <thead>
+                        <tr>
+                            <th>Produkt</th>
+                            <th>Cena</th>
+                            <th>Ilość</th>
+                            <th>Suma</th>
+                            <th>Akcje</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+
+            let totalValue = 0;
+            let totalItems = 0;
+
+            cart.forEach(item => {
+                console.log('Processing cart item:', item);
+                const product = products.find(p => p.id === item.id);
+                console.log('Found product:', product);
+                
+                if (product) {
+                    const itemTotal = product.price * item.quantity;
+                    totalValue += itemTotal;
+                    totalItems += item.quantity;
+
+                    cartHTML += `
+                        <tr>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 15px;">
+                                    <div class="cart-item-image">
+                                        <img src="${product.image}" alt="${product.name}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iODAiIHZpZXdCb3g9IjAgMCA4MCA4MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIiBmaWxsPSIjZjVmNWY1Ii8+Cjx0ZXh0IHg9IjQwIiB5PSI0NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTk5Ij5CcmFrIHpkanEmY2lhO248L3RleHQ+Cjwvc3ZnPg=='">
+                                    </div>
+                                    <div>
+                                        <div style="font-weight: bold;">${product.name}</div>
+                                        <div style="color: #666; font-size: 0.9rem;">${product.team}</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>${product.price.toFixed(2)} zł</td>
+                            <td>
+                                <div class="cart-quantity">
+                                    <button class="quantity-btn" onclick="updateQuantity(${product.id}, ${item.quantity - 1})">-</button>
+                                    <input type="number" class="quantity-input" value="${item.quantity}" min="1" 
+                                           onchange="updateQuantity(${product.id}, parseInt(this.value) || 1)">
+                                    <button class="quantity-btn" onclick="updateQuantity(${product.id}, ${item.quantity + 1})">+</button>
+                                </div>
+                            </td>
+                            <td style="font-weight: bold; color: #e10600;">${itemTotal.toFixed(2)} zł</td>
+                            <td>
+                                <button class="cart-remove" onclick="removeFromCart(${product.id})">Usuń</button>
+                            </td>
+                        </tr>
+                    `;
+                } else {
+                    console.error('Product not found for cart item:', item);
+                }
+            });
+
+            cartHTML += `
+                    </tbody>
+                </table>
+
+                <div class="cart-summary">
+                    <div class="summary-box">
+                        <div class="summary-row">
+                            <span>Produkty (${totalItems}):</span>
+                            <span>${totalValue.toFixed(2)} zł</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Dostawa:</span>
+                            <span>${totalValue > 200 ? 'Gratis' : '19.99 zł'}</span>
+                        </div>
+                        <div class="summary-total">
+                            <span>Do zapłaty:</span>
+                            <span>${(totalValue + (totalValue > 200 ? 0 : 19.99)).toFixed(2)} zł</span>
+                        </div>
+                        <button class="checkout-button" onclick="checkout()">Złóż zamówienie</button>
+                        <a href="Sklep.html" class="continue-shopping">← Kontynuuj zakupy</a>
+                    </div>
+                </div>
+            `;
+
+            cartContent.innerHTML = cartHTML;
+            console.log('Cart displayed successfully');
+        }
+
+        function checkout() {
+            const cart = getCart();
+            if (cart.length === 0) {
+                alert('Koszyk jest pusty!');
+                return;
+            }
+
+            // Generowanie numeru zamówienia
+            const orderNumber = 'F1-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('order-number').textContent = orderNumber;
+            
+            // Czyszczenie koszyka
+            localStorage.removeItem('f1_cart');
+            
+            // Pokazanie modala
+            document.getElementById('order-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('order-modal').style.display = 'none';
+            displayCart(); // Odświeżenie wyświetlania pustego koszyka
+        }
+
+        // Nasłuchiwanie na zmiany w localStorage z innych kart
+        window.addEventListener('storage', function(e) {
+            if (e.key === 'f1_cart') {
+                console.log('Cart updated in another tab, refreshing...');
+                displayCart();
+            }
+        });
+
+        // Inicjalizacja strony
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing cart display...');
+            console.log('localStorage available:', typeof Storage !== "undefined");
+            displayCart();
+        });
+
+        // Dodaj parametr debug do URL, aby zobaczyć informacje debugowania
+        // np. Koszyk.html?debug=1
+
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+    
+</body>
+</html>

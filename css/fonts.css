@@ -1,0 +1,111 @@
+/* fonts.css - Czcionki dla strony F1 */
+
+/* Podstawowe czcionki dla zespołów */
+.team-card {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.team-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #e10600;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.team-country {
+    font-size: 16px;
+    color: #ccc;
+    margin: 5px 0;
+    font-weight: 500;
+}
+
+.team-founded {
+    font-size: 14px;
+    color: #999;
+    font-weight: 400;
+}
+
+.detail-label {
+    font-size: 12px;
+    color: #ccc;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    font-family: 'Courier New', Consolas, Monaco, 'Lucida Console', monospace;
+    letter-spacing: 0.3px;
+}
+
+.titles-count {
+    color: #e10600 !important;
+    font-size: 20px !important;
+    font-weight: 700 !important;
+}
+
+.drivers-label {
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.driver-badge {
+    background: #e10600;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    flex: 1;
+    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.history-label {
+    font-size: 14px;
+    color: #e10600;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.history-text {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #ddd;
+    font-weight: 400;
+}
+
+/* Specjalne stylowanie dla siedziby */
+.detail-item:first-child .detail-value {
+    font-family: 'Courier New', Consolas, Monaco, 'Lucida Console', monospace;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    font-size: 15px;
+}
+
+/* Główne nagłówki strony */
+h2 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+    font-weight: 700 !important;
+}
+
+/* Paragraf opisowy */
+main section p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif !important;
+}

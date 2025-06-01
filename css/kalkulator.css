@@ -1,0 +1,385 @@
+ /* Style dla nowego kalkulatora rabatów */
+        :root {
+            --f1-red: #e10600;
+            --f1-dark: #15151e;
+            --f1-light: #f8f9fa;
+            --f1-gray: #6c757d;
+        }
+        
+        .calculator-page {
+            max-width: 1000px;
+            margin: 30px auto;
+            background-color: var(--f1-light);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .calculator-header {
+            background-color: var(--f1-red);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .calculator-header h3 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .calculator-header p {
+            margin: 10px 0 0;
+            opacity: 0.9;
+            font-size: 1rem;
+        }
+        
+        .calculator-body {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .product-selection {
+            grid-column: 1;
+        }
+        
+        .calculation-results {
+            grid-column: 2;
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .product-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin: 20px 0;
+            padding: 0;
+            list-style: none;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        .product-list li {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+        
+        .product-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .product-list .empty-list {
+            text-align: center;
+            padding: 30px;
+            color: var(--f1-gray);
+            font-style: italic;
+        }
+        
+        .product-search {
+            position: relative;
+            margin-bottom: 15px;
+        }
+        
+        .product-search input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        
+        .product-search input:focus {
+            outline: none;
+            border-color: var(--f1-red);
+            box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.1);
+        }
+        
+        .product-search .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--f1-gray);
+        }
+        
+        .product-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .product-info {
+            flex-grow: 1;
+        }
+        
+        .product-name {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .product-meta {
+            display: flex;
+            gap: 10px;
+            font-size: 0.85rem;
+            color: var(--f1-gray);
+        }
+        
+        .product-team {
+            background-color: var(--f1-dark);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: var(--f1-red);
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .quantity-control {
+            display: flex;
+            align-items: center;
+            margin-right: 10px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #f5f5f5;
+        }
+        
+        .quantity-display {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+            font-weight: bold;
+        }
+        
+        .remove-btn {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        
+        .add-product-btn {
+            background-color: var(--f1-dark);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .add-product-btn:hover {
+            background-color: #000;
+        }
+        
+        .calculate-btn {
+            background-color: var(--f1-red);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1rem;
+            width: 100%;
+            margin-top: 20px;
+        }
+        
+        .calculate-btn:hover {
+            background-color: #c10500;
+        }
+        
+        /* Style dla wyników kalkulacji */
+        .discount-title {
+            text-align: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .discount-title h4 {
+            margin: 0;
+            color: var(--f1-dark);
+            font-size: 1.4rem;
+        }
+        
+        .discount-title p {
+            color: var(--f1-gray);
+            margin-top: 5px;
+        }
+        
+        .discount-progress {
+            margin: 25px 0;
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .progress-label .label {
+            font-weight: bold;
+            color: var(--f1-dark);
+        }
+        
+        .progress-label .value {
+            font-weight: bold;
+            color: var(--f1-red);
+        }
+        
+        .progress-bar-container {
+            height: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background-color: var(--f1-red);
+            width: 0;
+            transition: width 0.6s ease;
+        }
+        
+        .discount-factors {
+            margin-top: 30px;
+        }
+        
+        .factor {
+            margin-bottom: 20px;
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #dee2e6;
+        }
+        
+        .factor.active {
+            border-left-color: var(--f1-red);
+            background-color: #fff5f5;
+        }
+        
+        .factor-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .factor-header .title {
+            font-weight: bold;
+            color: var(--f1-dark);
+        }
+        
+        .factor-header .discount {
+            font-weight: bold;
+            color: var(--f1-red);
+        }
+        
+        .factor-description {
+            font-size: 0.9rem;
+            color: var(--f1-gray);
+        }
+        
+        .factor-hint {
+            margin-top: 8px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .summary {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .summary-row .label {
+            color: var(--f1-gray);
+        }
+        
+        .summary-row .value {
+            font-weight: bold;
+        }
+        
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            font-size: 1.2rem;
+        }
+        
+        .total-row .label {
+            font-weight: bold;
+            color: var(--f1-dark);
+        }
+        
+        .total-row .value {
+            font-weight: bold;
+            color: var(--f1-red);
+        }
+        
+        .product-dropdown {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        
+        .product-dropdown:focus {
+            outline: none;
+            border-color: var(--f1-red);
+            box-shadow: 0 0 0 3px rgba(225, 6, 0, 0.1);
+        }
+        
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .calculator-body {
+                grid-template-columns: 1fr;
+            }
+            
+            .product-selection, 
+            .calculation-results {
+                grid-column: 1;
+            }
+            
+            .calculation-results {
+                margin-top: 30px;
+            }
+        }

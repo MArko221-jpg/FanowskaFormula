@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kierowcy Formuły 1 - Sezon 2025</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <style>
+        .drivers-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .drivers-table th, .drivers-table td {
+            border: 1px solid #555;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .drivers-table th {
+            background-color: #e10600;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .drivers-table tr:nth-child(even) {
+            background-color: #222;
+        }
+        
+        .drivers-table tr:hover {
+            background-color: #444;
+        }
+
+        .driver-photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #e10600;
+        }
+
+        .driver-flag {
+            width: 30px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+
+        .driver-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            background-color: #e10600;
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .driver-name {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .team-color {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        /* Kolory zespołów */
+        .mercedes { background-color: #00d2be; }
+        .red-bull { background-color: #0600ef; }
+        .ferrari { background-color: #dc0000; }
+        .mclaren { background-color: #ff9800; }
+        .aston-martin { background-color: #006f62; }
+        .alpine { background-color: #0090ff; }
+        .williams { background-color: #005aff; }
+        .racing-bulls { background-color: #2b4562; }
+        .kick-sauber { background-color: #900000; }
+        .haas { background-color: #ffffff; border: 1px solid #000; }
+
+        .stats-label {
+            font-weight: bold;
+            color: #e10600;
+        }
+
+        .bio {
+            max-width: 600px;
+            line-height: 1.5;
+        }
+
+        .team-header {
+            background-color: #1a1a1a;
+            font-size: 1.4em;
+            font-weight: bold;
+            text-align: center;
+            padding: 15px;
+            color: #e10600;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Kierowcy Formuły 1 - Sezon 2025</h2>
+            <p>Poznaj wszystkich 20 kierowców, którzy rywalizują w sezonie 2025 Formuły 1. Poniżej znajdziesz szczegółowe informacje o każdym z zawodników, ich karierze, osiągnięciach i aktualnych zespołach.</p>
+            
+            <table class="drivers-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2">Zdjęcie</th>
+                        <th rowspan="2">Kierowca</th>
+                        <th colspan="2">Informacje osobiste</th>
+                        <th colspan="2">Informacje sportowe</th>
+                        <th rowspan="2">Biografia</th>
+                    </tr>
+                    <tr>
+                        <th>Kraj</th>
+                        <th>Data urodzenia</th>
+                        <th>Zespół</th>
+                        <th>Statystyki</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- RED BULL RACING -->
+                    <tr class="team-header">
+                        <td colspan="7">RED BULL RACING</td>
+                    </tr>
+                    
+                    <!-- Max Verstappen -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\max-verstappen-red-bull-racing.png" alt="Max Verstappen" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">1</span> <span class="driver-name">Max Verstappen</span></td>
+                        <td><img src="../flagi/holandia.png" class="driver-flag" alt="Flaga Holandii">Holandia</td>
+                        <td>30.09.1997</td>
+                        <td><span class="team-color red-bull"></span>Red Bull Racing</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 112<br>
+                            <span class="stats-label">Debiut:</span> 2015<br>
+                            <span class="stats-label">Mistrzostwa:</span> 4 (2021-2024)
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Max Verstappen to czterokrotny mistrz świata Formuły 1, aktualnie broniący tytułu z Red Bull Racing. Holender jest synem byłego kierowcy F1 Josa Verstappena i kartingowej mistrzyni Sophie Kumpen. Zadebiutował w F1 w wieku 17 lat z Toro Rosso, stając się najmłodszym kierowcą w historii. Jego pierwszą wygraną odniósł w 2016 roku w Barcelonie, zostając najmłodszym zwycięzcą Grand Prix w wieku 18 lat i 228 dni. Od 2021 roku dominuje w F1, wygrywając 4 kolejne tytuły mistrzowskie.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2016 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 65<br>
+                            <span class="stats-label">Pole Position:</span> 42
+                        </td>
+                    </tr>
+                    
+                    <!-- Yuki Tsunoda -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\yuki-tsunoda-red-bull-racing.jpg" alt="Yuki Tsunoda" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">22</span> <span class="driver-name">Yuki Tsunoda</span></td>
+                        <td><img src="../flagi/jp.png" class="driver-flag" alt="Flaga Japonii">Japonia</td>
+                        <td>11.05.2000</td>
+                        <td><span class="team-color red-bull"></span>Red Bull Racing</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 1<br>
+                            <span class="stats-label">Debiut:</span> 2021<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Yuki Tsunoda to japoński kierowca, który w 2025 roku został awansowany z Racing Bulls do głównego zespołu Red Bull Racing, zastępując Liama Lawsona przy Verstappenie. Jest pierwszym japońskim kierowcą w Red Bullu od 2012 roku. Znany ze swojego agresywnego stylu jazdy i determinacji, Tsunoda przeszedł przez program młodych kierowców Red Bulla, pokazując konsekwentny rozwój od swojego debiutu w 2021 roku.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Racing Bulls 2021-2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+
+                    <!-- FERRARI -->
+                    <tr class="team-header">
+                        <td colspan="7">SCUDERIA FERRARI</td>
+                    </tr>
+                    
+                    <!-- Charles Leclerc -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\hd-charles-leclerc-official-f1-driver-transparent-background-7017517122267803kq17u5z4y.png" alt="Charles Leclerc" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">16</span> <span class="driver-name">Charles Leclerc</span></td>
+                        <td><img src="../flagi/mc.png" class="driver-flag" alt="Flaga Monako">Monako</td>
+                        <td>16.10.1997</td>
+                        <td><span class="team-color ferrari"></span>Ferrari</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 38<br>
+                            <span class="stats-label">Debiut:</span> 2018<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Charles Leclerc to monakijski kierowca Ferrari, uważany za jednego z najzdolniejszych kierowców swojego pokolenia. Syn byłego kierowcy F1 Hervé Leclerca, Charles dołączył do Ferrari w 2019 roku po jednym sezonie z Sauber. Znany ze swojej niezwykłej szybkości kwalifikacyjnej i umiejętności jazdy w trudnych warunkach. W 2022 roku był głównym rywalem Verstappena w walce o tytuł. Teraz tworzy jeden z najsilniejszych duetów w F1 u boku Lewisa Hamiltona.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2019 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 8<br>
+                            <span class="stats-label">Pole Position:</span> 26
+                        </td>
+                    </tr>
+                    
+                    <!-- Lewis Hamilton -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\lewham01.png" alt="Lewis Hamilton" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">44</span> <span class="driver-name">Lewis Hamilton</span></td>
+                        <td><img src="../flagi/gb.png" class="driver-flag" alt="Flaga Wielkiej Brytanii">Wielka Brytania</td>
+                        <td>07.01.1985</td>
+                        <td><span class="team-color ferrari"></span>Ferrari</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 197<br>
+                            <span class="stats-label">Debiut:</span> 2007<br>
+                            <span class="stats-label">Mistrzostwa:</span> 7 (2008, 2014-2020)
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Lewis Hamilton to siedmiokrotny mistrz świata, który w 2025 roku przeniósł się z Mercedesa do Ferrari w jednym z największych transferów w historii F1. Brytyjczyk jest rekordzistą pod względem liczby wygranych Grand Prix (103), pole position i podium. Jego przejście do Ferrari kończy 12-letnią współpracę z Mercedesem. Hamilton dąży do ósmego tytułu mistrzowskiego, który dałby mu rekord wszech czasów. Jest jednym z najbardziej wpływowych sportowców świata.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Mercedes 2013-2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 103<br>
+                            <span class="stats-label">Pole Position:</span> 104
+                        </td>
+                    </tr>
+
+                    <!-- MCLAREN -->
+                    <tr class="team-header">
+                        <td colspan="7">MCLAREN</td>
+                    </tr>
+                    
+                    <!-- Lando Norris -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\lando norris.png" alt="Lando Norris" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">4</span> <span class="driver-name">Lando Norris</span></td>
+                        <td><img src="../flagi/gb.png" class="driver-flag" alt="Flaga Wielkiej Brytanii">Wielka Brytania</td>
+                        <td>13.11.1999</td>
+                        <td><span class="team-color mclaren"></span>McLaren</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 15<br>
+                            <span class="stats-label">Debiut:</span> 2019<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Lando Norris to brytyjski kierowca McLarena, uważany za jednego z najjaśniejszych talentów F1. Dołączył do McLarena w 2019 roku prosto z programów młodych kierowców. Znany ze swojej szybkości, konsystencji i charyzmatycznej osobowości. W 2024 roku był głównym rywalem Verstappena w walce o tytuł, pokazując że McLaren ponownie może walczyć o najwyższe cele. Jest jednym z faworytów do pierwszego zwycięstwa w Grand Prix.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2019 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 4<br>
+                            <span class="stats-label">Pole Position:</span> 8
+                        </td>
+                    </tr>
+                    
+                    <!-- Oscar Piastri -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\i (1).png" alt="Oscar Piastri" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">81</span> <span class="driver-name">Oscar Piastri</span></td>
+                        <td><img src="../flagi/au.png" class="driver-flag" alt="Flaga Australii">Australia</td>
+                        <td>06.04.2001</td>
+                        <td><span class="team-color mclaren"></span>McLaren</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 8<br>
+                            <span class="stats-label">Debiut:</span> 2023<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Oscar Piastri to australijski kierowca, który dołączył do McLarena w 2023 roku po imponującej karierze w seriach juniorskich. Mistrz Formuły 3 (2020) i Formuły 2 (2021), Piastri szybko zaadaptował się do F1, odnosząc swoje pierwsze zwycięstwo w 2024 roku. Przed dołączeniem do McLarena był rezerwowym kierowcą Alpine. Jego spokojne podejście i analityczny umysł przypominają styl najlepszych kierowców. Tworzy z Norrisem jeden z najmłodszych i najzdolniejszych duetów na gridzie.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2023 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 2<br>
+                            <span class="stats-label">Pole Position:</span> 1
+                        </td>
+                    </tr>
+
+                    <!-- MERCEDES -->
+                    <tr class="team-header">
+                        <td colspan="7">MERCEDES</td>
+                    </tr>
+                    
+                    <!-- George Russell -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\f1_2024_gr_mer_lg.png" alt="George Russell" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">63</span> <span class="driver-name">George Russell</span></td>
+                        <td><img src="../flagi/gb.png" class="driver-flag" alt="Flaga Wielkiej Brytanii">Wielka Brytania</td>
+                        <td>15.02.1998</td>
+                        <td><span class="team-color mercedes"></span>Mercedes</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 14<br>
+                            <span class="stats-label">Debiut:</span> 2019<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            George Russell to brytyjski kierowca Mercedesa, który dołączył do głównego zespołu w 2022 roku po trzech latach z Williamsem. Absolwent programu młodych kierowców Mercedesa, Russell pokazał swój talent już podczas zastępstwa za Hamiltona w 2020 roku w Bahrajnie. Znany ze swojej metodyczności, inteligencji wyścigowej i umiejętności wyciągania maksimum z samochodu. Od odejścia Hamiltona do Ferrari, Russell stał się liderem zespołu i główną nadzieją Mercedesa na przyszłe sukcesy.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2022 roku (wcześniej Williams 2019-2021)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 2<br>
+                            <span class="stats-label">Pole Position:</span> 3
+                        </td>
+                    </tr>
+                    
+                    <!-- Andrea Kimi Antonelli -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\kimi.png" alt="Andrea Kimi Antonelli" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">12</span> <span class="driver-name">Andrea Kimi Antonelli</span></td>
+                        <td><img src="../flagi/it.png" class="driver-flag" alt="Flaga Włoch">Włochy</td>
+                        <td>25.08.2006</td>
+                        <td><span class="team-color mercedes"></span>Mercedes</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2025<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Andrea Kimi Antonelli to włoski kierowca, który w wieku 18 lat został awansowany z Formuły 2 do Mercedesa, zastępując Lewisa Hamiltona. To jeden z największych talentów w historii motorsportu - przeszedł bezpośrednio z Formuły 4 do F2, pomijając Formułę 3. Jest protegowanym Mercedesa i uważany za przyszłość zespołu. Jego spokojne podejście i dojrzałość w tak młodym wieku robią ogromne wrażenie. Antonelli nosi imię na cześć legendarnego Kimiego Räikkönena.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+
+                    <!-- ASTON MARTIN -->
+                    <tr class="team-header">
+                        <td colspan="7">ASTON MARTIN</td>
+                    </tr>
+                    
+                    <!-- Fernando Alonso -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\hd-fernando-alonso-official-f1-driver-transparent-png-701751712226882tus0ybfjeg.png" alt="Fernando Alonso" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">14</span> <span class="driver-name">Fernando Alonso</span></td>
+                        <td><img src="../flagi/es.png" class="driver-flag" alt="Flaga Hiszpanii">Hiszpania</td>
+                        <td>29.07.1981</td>
+                        <td><span class="team-color aston-martin"></span>Aston Martin</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 106<br>
+                            <span class="stats-label">Debiut:</span> 2001<br>
+                            <span class="stats-label">Mistrzostwa:</span> 2 (2005, 2006)
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Fernando Alonso to dwukrotny mistrz świata i jeden z najlepszych kierowców w historii F1. W wieku 43 lat nadal pozostaje na najwyższym poziomie, pokazując nieslabną motywację i szybkość. Dołączył do Aston Martin w 2023 roku po drugim okresie w Ferrari oraz powrocie do McLarena i Alpine. Znany ze swojej wszechstronności, taktycznego myślenia i umiejętności wyciągania maksimum z każdego samochodu. Jego doświadczenie i przywództwo są nieocenione dla rozwijającego się zespołu Aston Martin.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2023 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 33<br>
+                            <span class="stats-label">Pole Position:</span> 22
+                        </td>
+                    </tr>
+                    
+                    <!-- Lance Stroll -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\f1_2024_ls_ast_lg.png" alt="Lance Stroll" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">18</span> <span class="driver-name">Lance Stroll</span></td>
+                        <td><img src="../flagi/ca.png" class="driver-flag" alt="Flaga Kanady">Kanada</td>
+                        <td>29.10.1998</td>
+                        <td><span class="team-color aston-martin"></span>Aston Martin</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 3<br>
+                            <span class="stats-label">Debiut:</span> 2017<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Lance Stroll to kanadyjski kierowca, syn miliardera Lawrence Strolla, właściciela Aston Martin. Pomimo kontrowersji związanych z jego pozycją, Stroll udowodnił, że zasługuje na miejsce w F1 dzięki konsystentnym występom i umiejętności jazdy w trudnych warunkach. Jego najlepszym wynikiem było trzecie miejsce w Azerbejdżanie 2017 i 2020. W Aston Martin pełni rolę stabilnego kierowcy, który dostarcza cennych informacji technicznych zespołowi i wspiera rozwój samochodu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2017 roku (wcześniej Williams 2017)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 1
+                        </td>
+                    </tr>
+
+                    <!-- ALPINE -->
+                    <tr class="team-header">
+                        <td colspan="7">ALPINE</td>
+                    </tr>
+                    
+                    <!-- Pierre Gasly -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\piegas01.png" alt="Pierre Gasly" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">10</span> <span class="driver-name">Pierre Gasly</span></td>
+                        <td><img src="../flagi/fr.png" class="driver-flag" alt="Flaga Francji">Francja</td>
+                        <td>07.02.1996</td>
+                        <td><span class="team-color alpine"></span>Alpine</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 4<br>
+                            <span class="stats-label">Debiut:</span> 2017<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Pierre Gasly to francuski kierowca, który dołączył do Alpine w 2023 roku po latach w ekosystemie Red Bulla. Jego największym sukcesem było sensacyjne zwycięstwo w Grand Prix Włoch 2020 z AlphaTauri. Po krótkim, nieudanym okresie w głównym zespole Red Bulla w 2019 roku, odbudował swoją karierę z AlphaTauri/RB. W Alpine został liderem zespołu i odpowiada za rozwój francuskiego projektu. Gasly jest znany ze swojej determinacji i umiejętności wykorzystywania okazji.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2023 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 1<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+                    
+                    <!-- Franco Colapinto -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\franco-colapinto-2025.png" alt="Franco Colapinto" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">43</span> <span class="driver-name">Franco Colapinto</span></td>
+                        <td><img src="../flagi/ar.png" class="driver-flag" alt="Flaga Argentyny">Argentyna</td>
+                        <td>27.05.2003</td>
+                        <td><span class="team-color alpine"></span>Alpine</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2024<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Franco Colapinto to argentyński kierowca, który po imponujących występach z Williamsem w końcówce sezonu 2024, dołączył do Alpine jako kierowca wyścigowy w systemie rotacyjnym. Jest pierwszym argentyńskim kierowcą w F1 od ponad 20 lat. Jego szybka adaptacja do F1 z Williamsem pokazała ogromny potencjał. W Alpine ma szansę na stałe zadomowić się w F1 i reprezentować Amerykę Południową na najwyższym poziomie motorsportu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Williams 2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+
+                    <!-- HAAS -->
+                    <tr class="team-header">
+                        <td colspan="7">HAAS</td>
+                    </tr>
+                    
+                    <!-- Esteban Ocon -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\esteban-ocon-haas-f1-team.jpg" alt="Esteban Ocon" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">31</span> <span class="driver-name">Esteban Ocon</span></td>
+                        <td><img src="../flagi/fr.png" class="driver-flag" alt="Flaga Francji">Francja</td>
+                        <td>17.09.1996</td>
+                        <td><span class="team-color haas"></span>Haas</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 3<br>
+                            <span class="stats-label">Debiut:</span> 2016<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Esteban Ocon to francuski kierowca, który po pięciu latach z Alpine przeniósł się do Haasa w 2025 roku. Jego największym sukcesem było sensacyjne zwycięstwo w Grand Prix Węgier 2021. Ocon przeszedł długą drogę od Force India przez okres bez miejsca w F1, powrót z Mercedesem jako kierowca zastępczy, do Alpine. W Haasie pełni rolę doświadczonego lidera, który ma pomóc amerykańskiemu zespołowi w walce o punkty. Znany ze swojej wytrwałości i determinacji.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Alpine 2020-2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 1<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+                    
+                    <!-- Oliver Bearman -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\olibea01.png" alt="Oliver Bearman" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">50</span> <span class="driver-name">Oliver Bearman</span></td>
+                        <td><img src="../flagi/gb.png" class="driver-flag" alt="Flaga Wielkiej Brytanii">Wielka Brytania</td>
+                        <td>08.05.2005</td>
+                        <td><span class="team-color haas"></span>Haas</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2024<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Oliver Bearman to brytyjski kierowca, który dołączył do Haasa na pełny sezon 2025 po imponującym debiucie z Ferrari w 2024 roku. Zastępując chorego Carlosa Sainza w Arabii Saudyjskiej, zajął fantastyczne 7. miejsce. Jest absolwentem Akademii Ferrari i jednym z najbardziej obiecujących młodych talentów. W wieku 19 lat już pokazał, że potrafi radzić sobie z presją F1. Ferrari widzi w nim potencjalnego przyszłego kierowcę głównego zespołu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+
+                    <!-- RACING BULLS -->
+                    <tr class="team-header">
+                        <td colspan="7">RACING BULLS</td>
+                    </tr>
+                    
+                    <!-- Liam Lawson -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\lawson-cutout-2025-vcarb.png" alt="Liam Lawson" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">30</span> <span class="driver-name">Liam Lawson</span></td>
+                        <td><img src="../flagi/nz.png" class="driver-flag" alt="Flaga Nowej Zelandii">Nowa Zelandia</td>
+                        <td>11.02.2002</td>
+                        <td><span class="team-color racing-bulls"></span>Racing Bulls</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2023<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Liam Lawson to nowozelandzki kierowca, który po krótkim, dwuwyścigowym okresie w Red Bullu w 2025 roku, powrócił do Racing Bulls. Pierwotnie awansowany do głównego zespołu po odejściu Sergio Pereza, Lawson nie zdołał sprostać wyzwaniu i został zastąpiony przez Yukiego Tsunodę. Teraz ma drugą szansę na udowodnienie swojej wartości w siostrzanym zespole. Jest częścią programu młodych kierowców Red Bulla i ma determinację, by powrócić do głównego zespołu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej krótko w Red Bull)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+                    
+                    <!-- Isack Hadjar -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\isahad01.png" alt="Isack Hadjar" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">35</span> <span class="driver-name">Isack Hadjar</span></td>
+                        <td><img src="../flagi/fr.png" class="driver-flag" alt="Flaga Francji">Francja</td>
+                        <td>28.09.2004</td>
+                        <td><span class="team-color racing-bulls"></span>Racing Bulls</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2025<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Isack Hadjar to francusko-algierski kierowca, jeden z debiutantów sezonu 2025. Członek programu młodych kierowców Red Bulla, był wicemistrzem Formuły 2 w 2024 roku. Jego promocja do F1 nastąpiła dzięki imponującym wynikom w juniorskich seriach i jest 19. kierowcą awansowanym z programu Red Bulla. W Racing Bulls tworzy z Liamem Lawsonem jeden z najmłodszych duetów w F1, reprezentując przyszłość ekosystemu Red Bulla.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+
+                    <!-- WILLIAMS -->
+                    <tr class="team-header">
+                        <td colspan="7">WILLIAMS</td>
+                    </tr>
+                    
+                    <!-- Alex Albon -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\alex albon.png" alt="Alex Albon" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">23</span> <span class="driver-name">Alex Albon</span></td>
+                        <td><img src="../flagi/th.png" class="driver-flag" alt="Flaga Tajlandii">Tajlandia</td>
+                        <td>23.03.1996</td>
+                        <td><span class="team-color williams"></span>Williams</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 2<br>
+                            <span class="stats-label">Debiut:</span> 2019<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Alex Albon to tajsko-brytyjski kierowca, który w 2025 roku będzie w swoim czwartym sezonie z Williamsem. Po okresie w Red Bullu i roku jako kierowca zastępczy, odnalazł swoje miejsce w F1 dzięki Williamsowi. Albon jest znany ze swojej wszechstronności, umiejętności technicznych i pozytywnej atmosfery w zespole. Jego doświadczenie z różnymi zespołami czyni go cennym liderem dla odbudowującego się Williamsa. Jest kluczowy dla rozwoju zespołu pod kierownictwem Jamesa Vowlesa.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2022 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+                    
+                    <!-- Carlos Sainz -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\carsai01.png" alt="Carlos Sainz" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">55</span> <span class="driver-name">Carlos Sainz Jr.</span></td>
+                        <td><img src="../flagi/es.png" class="driver-flag" alt="Flaga Hiszpanii">Hiszpania</td>
+                        <td>01.09.1994</td>
+                        <td><span class="team-color williams"></span>Williams</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 25<br>
+                            <span class="stats-label">Debiut:</span> 2015<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Carlos Sainz Jr. to hiszpański kierowca, który dołączył do Williamsa w 2025 roku po czterech latach z Ferrari. Syn legendy rajdów Carlosa Sainza Sr., młodszy Sainz to kompletny kierowca z trzema zwycięstwami w F1. Jego przejście do Williamsa było jednym z największych transferów sezonu 2025. Sainz wybrał projekt Williamsa, wierząc w wizję Jamesa Vowlesa na przyszłość zespołu. Jego doświadczenie i szybkość mają pomóc Williamsowi powrócić na szczyt.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Ferrari 2021-2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 3<br>
+                            <span class="stats-label">Pole Position:</span> 6
+                        </td>
+                    </tr>
+
+                    <!-- KICK SAUBER -->
+                    <tr class="team-header">
+                        <td colspan="7">KICK SAUBER</td>
+                    </tr>
+                    
+                    <!-- Nico Hulkenberg -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\nico-hulkenberg-stake-f1-team.jpg" alt="Nico Hulkenberg" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">27</span> <span class="driver-name">Nico Hulkenberg</span></td>
+                        <td><img src="../flagi/de.png" class="driver-flag" alt="Flaga Niemiec">Niemcy</td>
+                        <td>19.08.1987</td>
+                        <td><span class="team-color kick-sauber"></span>Kick Sauber</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 1<br>
+                            <span class="stats-label">Debiut:</span> 2010<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Nico Hulkenberg to niemiecki kierowca z bogatym doświadczeniem w F1, który przeniósł się z Haasa do Kick Sauber w 2025 roku. Po latach posiadania niefortunnego rekordu największej liczby startów bez podium, w 2024 roku w końcu stanął na podium z Haasem. Sauber w 2026 stanie się fabrycznym zespołem Audi, więc doświadczenie Hulkenberga jest kluczowe dla zespołu przechodzącego transformację. Jest ceniony za szybkość kwalifikacyjną i techniczne zrozumienie samochodu.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku (wcześniej Haas 2023-2024)<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 1
+                        </td>
+                    </tr>
+                    
+                    <!-- Gabriel Bortoleto -->
+                    <tr>
+                        <td rowspan="2"><img src="../zdjęcia\gabbor01.png" alt="Gabriel Bortoleto" class="driver-photo"></td>
+                        <td rowspan="2"><span class="driver-number">24</span> <span class="driver-name">Gabriel Bortoleto</span></td>
+                        <td><img src="../flagi/br.png" class="driver-flag" alt="Flaga Brazylii">Brazylia</td>
+                        <td>14.10.2004</td>
+                        <td><span class="team-color kick-sauber"></span>Kick Sauber</td>
+                        <td>
+                            <span class="stats-label">Podium:</span> 0<br>
+                            <span class="stats-label">Debiut:</span> 2025<br>
+                            <span class="stats-label">Mistrzostwa:</span> 0
+                        </td>
+                        <td rowspan="2" class="bio">
+                            Gabriel Bortoleto to brazylijski kierowca, który zadebiutował w F1 w 2025 roku z Kick Sauber. Mistrz Formuły 2 z 2024 roku i protegowany Fernanda Alonso, został wybrany przez Sauber jako partner Nico Hulkenberga. Jest pierwszym brazylijskim kierowcą w F1 od czasów Felipe Massy, niosąc nadzieje kibiców z kraju o bogatej tradycji w F1. Jego spokojne podejście i dojrzałość w młodym wieku robią wrażenie na zespole przygotowującym się do transformacji w fabryczny zespół Audi.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <span class="stats-label">W zespole od:</span> 2025 roku<br>
+                            <span class="stats-label">Zwycięstwa:</span> 0<br>
+                            <span class="stats-label">Pole Position:</span> 0
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

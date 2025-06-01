@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklep Fanowski F1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/shop.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section>
+            <h2>Sklep z akcesoriami F1</h2>
+            <p>Witaj w oficjalnym sklepie fanowskim! Znajdziesz tu różnorodne akcesoria związane z Formułą 1 - od ubrań po modele samochodów. Wszystkie produkty są licencjonowane i wysokiej jakości.</p>
+            
+            <!-- Filtry kategorii -->
+            <div class="product-categories">
+                <button class="category-btn active" data-category="all">Wszystkie</button>
+                <button class="category-btn" data-category="clothing">Odzież</button>
+                <button class="category-btn" data-category="models">Modele</button>
+                <button class="category-btn" data-category="accessories">Akcesoria</button>
+                <button class="category-btn" data-category="memorabilia">Pamiątki</button>
+            </div>
+            
+            <!-- Lista produktów -->
+            <div class="product-grid" id="product-container">
+                <!-- Produkty będą wstawiane przez JavaScript -->
+            </div>
+        </section>
+    </main>
+    
+    <!-- Toast dla powiadomień -->
+    <div class="toast" id="toast">Produkt dodany do koszyka</div>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Dane produktów z zaktualizowanymi obrazami
+        const products = [
+            {
+                id: 1,
+                name: "Bluza Williams Racing",
+                price: 329.99,
+                image: "../sklep/bluza williams.jpg",
+                description: "Ciepła bluza z kapturem w barwach Williams Racing",
+                category: "clothing",
+                team: "Williams"
+            },
+            {
+                id: 2,
+                name: "Czapka Red Bull Racing",
+                price: 149.99,
+                image: "../sklep/czapkaRB.jpg",
+                description: "Czapka z daszkiem w barwach zespołu Red Bull Racing",
+                category: "clothing",
+                team: "Red Bull Racing"
+            },
+            {
+                id: 3,
+                name: "Model kasku Charles Leclerc 1:2",
+                price: 499.99,
+                image: "../sklep/kaskferrara.jpg",
+                description: "Kolekcjonerski model kasku Charlesa Leclerca w skali 1:2",
+                category: "models",
+                team: "Ferrari"
+            },
+            {
+                id: 4,
+                name: "Kubek Mercedes AMG",
+                price: 79.99,
+                image: "../sklep/kubekMERC.jpg",
+                description: "Ceramiczny kubek w barwach zespołu Mercedes AMG Petronas",
+                category: "accessories",
+                team: "Mercedes"
+            },
+            {
+                id: 5,
+                name: "Flagi Alpine F1 Team",
+                price: 129.99,
+                image: "../sklep/flaga alpine.png",
+                description: "Zestaw flag kibica zespołu Alpine F1 Team",
+                category: "accessories",
+                team: "Alpine"
+            },
+            {
+                id: 6,
+                name: "Plakat GP Monaco 2025",
+                price: 89.99,
+                image: "../sklep/gp monako.jpg",
+                description: "Oficjalny plakat Grand Prix Monaco 2025",
+                category: "memorabilia",
+                team: "Various"
+            },
+            {
+                id: 7,
+                name: "Koszulka Replika Max Verstappen",
+                price: 299.99,
+                image: "../sklep/koszulka max.jpg",
+                description: "Replika koszulki Maxa Verstappena z sezonu 2025",
+                category: "clothing",
+                team: "Red Bull Racing"
+            },
+            {
+                id: 8,
+                name: "Zestaw modeli F1 2025",
+                price: 1799.99,
+                image: "../sklep/modele f1.jpg",
+                description: "Komplet modeli wszystkich bolidów sezonu 2025 w skali 1:43",
+                category: "models",
+                team: "Various"
+            },
+            {
+                id: 9,
+                name: "Rękawice wyścigowe F1",
+                price: 199.99,
+                image: "../sklep/rekawice LH.jpg",
+                description: "Profesjonalne rękawice wyścigowe w stylu F1",
+                category: "accessories",
+                team: "Various"
+            },
+            {
+                id: 10,
+                name: "Koszulka McLaren Team",
+                price: 249.99,
+                image: "../sklep/tshirtMcla.jpg",
+                description: "Oficjalna koszulka zespołu McLaren na sezon 2025",
+                category: "clothing",
+                team: "McLaren"
+            },
+            {
+                id: 11,
+                name: "Smycz Alpine F1",
+                price: 39.99,
+                image: "../sklep/brelokAM.jpg",
+                description: "Smycz do kluczy zespołu Aston Martin F1 Team",
+                category: "accessories",
+                team: "Aston Martin"
+            },
+            {
+               id: 12,
+                name: "Model Ferrari SF-25 1:18",
+                price: 599.99,
+                image: "../sklep/s-l1200.jpg",
+                description: "Kolekcjonerski model bolidu Ferrari z sezonu 2025 w skali 1:18",
+                category: "models",
+                team: "Ferrari"
+            }
+        ];
+
+        // Koszyk - teraz używa localStorage
+        function getCart() {
+            return JSON.parse(localStorage.getItem('f1_cart')) || [];
+        }
+        
+        function saveCart(cart) {
+            localStorage.setItem('f1_cart', JSON.stringify(cart));
+            updateCartCounter();
+            updateCartSummary();
+        }
+        
+        // Dodawanie produktu do koszyka
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (!product) return;
+            
+            let cart = getCart();
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({
+                    id: product.id,
+                    quantity: 1
+                });
+            }
+            
+            saveCart(cart);
+            showToast(`Dodano ${product.name} do koszyka`);
+        }
+        
+        // Wyświetlanie toasta
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.innerText = message;
+            toast.className = 'toast toast-success';
+            toast.style.display = 'block';
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 3000);
+        }
+        
+        // Aktualizacja licznika koszyka
+        function updateCartCounter() {
+            const cart = getCart();
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-counter').innerText = count;
+        }
+
+        // Aktualizacja podsumowania koszyka
+        function updateCartSummary() {
+            const cartSummary = document.getElementById('cart-summary');
+            const cart = getCart();
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            const totalValue = cart.reduce((total, item) => {
+                const product = products.find(p => p.id === item.id);
+                return total + (product ? product.price * item.quantity : 0);
+            }, 0);
+
+            if (count === 0) {
+                cartSummary.textContent = 'Koszyk jest pusty';
+            } else {
+                cartSummary.textContent = `${count} ${count === 1 ? 'produkt' : count < 5 ? 'produkty' : 'produktów'} • Wartość: ${totalValue.toFixed(2)} zł`;
+            }
+        }
+        
+        // Wyświetlanie produktów
+        function displayProducts(category = 'all') {
+            const container = document.getElementById('product-container');
+            container.innerHTML = '';
+            
+            const filteredProducts = category === 'all' ? 
+                products : 
+                products.filter(product => product.category === category);
+            
+            filteredProducts.forEach(product => {
+                const productElement = document.createElement('div');
+                productElement.className = 'product-card';
+                productElement.innerHTML = `
+                    <div class="team-flag">${product.team}</div>
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-name">${product.name}</div>
+                        <div class="product-price">${product.price.toFixed(2)} zł</div>
+                        <div class="product-desc">${product.description}</div>
+                        <button class="add-to-cart" data-id="${product.id}">Dodaj do koszyka</button>
+                    </div>
+                `;
+                container.appendChild(productElement);
+            });
+            
+            // Dodawanie eventu dla przycisków "Dodaj do koszyka"
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    addToCart(productId);
+                });
+            });
+        }
+        
+        // Filtry kategorii
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Usuwanie aktywnego stanu z wszystkich przycisków
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Dodawanie aktywnego stanu do klikniętego przycisku
+                this.classList.add('active');
+                
+                // Filtrowanie produktów
+                const category = this.getAttribute('data-category');
+                displayProducts(category);
+            });
+        });
+
+        // Inicjalizacja strony
+        displayProducts();
+        updateCartCounter();
+        updateCartSummary();
+    </script>
+   <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

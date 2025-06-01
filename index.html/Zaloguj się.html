@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konto Użytkownika - Strona fanowska Formuły 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/styleKonto2.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Konto Użytkownika</h2>
+            <p>Zaloguj się do swojego konta lub zarejestruj się, aby uzyskać dostęp do dodatkowych funkcji naszej społeczności F1.</p>
+        
+            <div class="account-container">
+                <!-- Formularz logowania -->
+                <div class="account-box fade-in">
+                    <div class="account-header">
+                        <h3>Logowanie</h3>
+                        <p>Zaloguj się do swojego konta</p>
+                    </div>
+                    
+                    <form id="login-form" action="#" method="post" onsubmit="return validateLoginForm()">
+                        <div class="form-group">
+                            <label for="login-email" class="required">Adres email</label>
+                            <input type="email" id="login-email" name="email" placeholder="twoj.email@example.com" required>
+                            <div class="error-message" id="login-email-error">Proszę podać prawidłowy adres email</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="login-password" class="required">Hasło</label>
+                            <input type="password" id="login-password" name="password" placeholder="Twoje hasło" required>
+                            <div class="error-message" id="login-password-error">Proszę podać hasło</div>
+                        </div>
+                        
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="remember-me" name="remember">
+                            <label for="remember-me">Zapamiętaj mnie</label>
+                        </div>
+                        
+                        <div class="forgot-password">
+                            <a href="#">Zapomniałeś hasła?</a>
+                        </div>
+                        
+                        <button type="submit" class="account-button">Zaloguj się</button>
+                    </form>
+                    
+                    <div class="social-login">
+                        <p>Lub zaloguj się przez:</p>
+                        <div class="social-buttons">
+                            <a href="#" class="social-button facebook">Facebook</a>
+                            <a href="#" class="social-button google">Google</a>
+                            <a href="#" class="social-button twitter">Twitter</a>
+                        </div>
+                    </div>
+                    
+                    <div class="login-help">
+                        <p>Nie masz jeszcze konta? <a href="Zarejestruj się.html" id="show-register">Zarejestruj się</a></p>
+                    </div>
+                </div>
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Walidacja formularza logowania
+        function validateLoginForm() {
+            let valid = true;
+            
+            // Walidacja email
+            const email = document.getElementById('login-email');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email.value)) {
+                document.getElementById('login-email-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('login-email-error').style.display = 'none';
+            }
+            
+            // Walidacja hasła
+            const password = document.getElementById('login-password');
+            if (!password.value.trim()) {
+                document.getElementById('login-password-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('login-password-error').style.display = 'none';
+            }
+            
+            // Tu możesz dodać kod symulujący logowanie użytkownika
+            if (valid) {
+                alert('Logowanie zakończone sukcesem! (To tylko symulacja)');
+            }
+            
+            return false; // Zapobiegamy prawdziwemu wysłaniu formularza
+        }
+        
+        
+        document.getElementById('show-login')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            const loginBox = document.querySelector('.account-box:nth-child(1)');
+            const registerBox = document.querySelector('.account-box:nth-child(2)');
+            
+            loginBox.style.display = 'block';
+            registerBox.style.display = 'none';
+        });
+        // Skrypt dla mobilnego menu
+        document.getElementById('mobile-menu-toggle')?.addEventListener('click', function() {
+            const menu = document.getElementById('main-menu');
+            if (menu.style.display === 'flex' || menu.style.display === '') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'flex';
+            }
+        });
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

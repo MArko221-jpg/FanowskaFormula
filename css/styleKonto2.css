@@ -1,0 +1,210 @@
+.account-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin: 30px auto;
+        }
+        
+        .account-box {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .account-header {
+            background-color: #e10600;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            border-radius: 8px 8px 0 0;
+            margin: -20px -20px 20px -20px;
+        }
+        
+        .account-header h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .account-header p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #e10600;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(225, 6, 0, 0.1);
+        }
+        
+        .checkbox-group {
+            margin-bottom: 15px;
+        }
+        
+        .checkbox-group label {
+            display: inline-block;
+            margin-left: 8px;
+            font-weight: normal;
+        }
+        
+        .account-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #e10600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .account-button:hover {
+            background-color: #b30500;
+        }
+        
+        .secondary-button {
+            background-color: #555;
+        }
+        
+        .secondary-button:hover {
+            background-color: #333;
+        }
+        
+        .social-login {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .social-login p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 15px;
+            border-radius: 4px;
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .social-button:hover {
+            opacity: 0.9;
+        }
+        
+        .facebook {
+            background-color: #1877f2;
+        }
+        
+        .google {
+            background-color: #db4437;
+        }
+        
+        .twitter {
+            background-color: #1da1f2;
+        }
+        
+        .forgot-password {
+            text-align: right;
+            margin-top: 10px;
+        }
+        
+        .forgot-password a {
+            color: #666;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .forgot-password a:hover {
+            color: #e10600;
+        }
+        
+        .login-help {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .login-help a {
+            color: #e10600;
+            text-decoration: none;
+        }
+        
+        .login-help a:hover {
+            text-decoration: underline;
+        }
+        
+        .required:after {
+            content: " *";
+            color: #e10600;
+        }
+        
+        .error-message {
+            color: #e10600;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+        
+        /* Dodanie animacji przejścia */
+        .fade-in {
+            animation: fadeIn 0.5s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .account-container {
+                flex-direction: column;
+            }
+            
+            .account-box {
+                max-width: 100%;
+            }
+        }

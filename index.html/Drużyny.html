@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title text-align: center>Drużyny Formuły 1</title>
+    <link rel="stylesheet" href="../css/drużyna.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/fonts.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section>
+            <h2 style="text-align: center;">Drużyny Formuły 1 - Sezon 2025</h2>
+            <p style="text-align: center; color: #666;">Poznaj wszystkie zespoły startujące w sezonie 2025, ich historię i aktualnych kierowców</p>
+            
+            <div class="teams-grid">
+                <!-- McLaren -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\mclaren-brand-logo-symbol-orange-design-british-car-automobile-illustration-free-vector.jpg" alt="McLaren Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">McLaren</h3>
+                            <p class="team-country">🇬🇧 Wielka Brytania</p>
+                            <p class="team-founded">Założony: 1963</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Woking, Surrey</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">8</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Lando Norris</div>
+                            <div class="driver-badge">Oscar Piastri</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Założony przez nowozelandzkiego kierowcy Bruce'a McLarena w 1963 roku, McLaren stał się jednym z najbardziej utytułowanych zespołów w historii F1. Prawdziwy złoty okres zespołu przypadł na lata 80. i 90., kiedy legendarni kierowcy jak Ayrton Senna, Alain Prost czy Mika Häkkinen zdobywali tytuły mistrzowskie. Zespół wygrał 8 tytułów konstruktorów i 12 tytułów kierowców. Po trudnej dekadzie 2010-2020, McLaren powrócił do walki o podium dzięki partnerstwu z Mercedesem jako dostawcą silników. Obecnie pod wodzą Zaka Browna i Andrea Stelli zespół konsekwentnie buduje swoją pozycję w czołówce stawki.</div>
+                    </div>
+                </div>
+
+                <!-- Mercedes -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\1024px-Mercedes_AMG_Petronas_F1_Logo.svg.png" alt="Mercedes Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Mercedes</h3>
+                            <p class="team-country">🇩🇪 Niemcy</p>
+                            <p class="team-founded">Założony: 2010</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Brackley</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">8</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">George Russell</div>
+                            <div class="driver-badge">Kimi Antonelli</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Mercedes wrócił do Formuły 1 w 2010 roku po przejęciu zespołu Brawn GP, który rok wcześniej sensacyjnie zdobył oba tytuły mistrzowskie. Prawdziwa dominacja Mercedesa rozpoczęła się w 2014 roku wraz z wprowadzeniem nowych regulacji silnikowych (V6 turbo hybrid). W latach 2014-2021 zespół wygrał 8 tytułów konstruktorów z rzędu, a Lewis Hamilton zdobył 6 z 7 swoich tytułów mistrzowskich właśnie w Mercedesie. Po odejściu Hamiltona do Ferrari i zakończeniu ery dominacji, zespół przechodzi fazę odbudowy z młodym duetem Russell-Antonelli, starając się wrócić na szczyt stawki.</div>
+                    </div>
+                </div>
+
+                <!-- Red Bull Racing -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\pngimg.com - red_bull_PNG24.png" alt="Red Bull Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Red Bull Racing</h3>
+                            <p class="team-country">🇦🇹 Austria</p>
+                            <p class="team-founded">Założony: 2005</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Milton Keynes</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">6</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Max Verstappen</div>
+                            <div class="driver-badge">Yuki Tsunoda</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Red Bull Racing powstał w 2005 roku po przejęciu przez austriacką firmę Red Bull upadającego zespołu Jaguar Racing. Pierwszy wielki sukces przyszedł z Sebastianem Vettelem, który zdobył 4 tytuły mistrzowskie z rzędu (2010-2013). Po latach w cieniu Mercedesa, zespół powrócił na szczyt dzięki Maxowi Verstappenowi, który od 2021 roku dominuje w F1. Pod kierownictwem Christiana Hornera i głównego projektanta Adriana Neweya, Red Bull słynie z innowacyjnych rozwiązań aerodynamicznych i agresywnej strategii wyścigowej. Zespół ma także program rozwoju młodych talentów, który odkrył takie gwiazdy jak Vettel czy Verstappen.</div>
+                    </div>
+                </div>
+
+                <!-- Ferrari -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\scuderia_ferrari-logo_brandlogos.net_uupa6.png" alt="Ferrari Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Ferrari</h3>
+                            <p class="team-country">🇮🇹 Włochy</p>
+                            <p class="team-founded">Założony: 1929</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Maranello</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">16</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Charles Leclerc</div>
+                            <div class="driver-badge">Lewis Hamilton</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Scuderia Ferrari to najstarszy i najbardziej utytułowany zespół w historii Formuły 1, założony przez legendarnego Enzo Ferrariego w 1929 roku. Ferrari jest jedynym zespołem, który brał udział we wszystkich sezonach F1 od jej powstania w 1950 roku. Zespół wygrał rekordowe 16 tytułów konstruktorów, z największymi sukcesami w latach 70., 80. i okresie dominacji Michaela Schumachera (1999-2004). Ostatni tytuł konstruktorów Ferrari zdobyło w 2008 roku z Felipe Massą i Kimim Räikkönenem. W 2025 roku do zespołu dołączył siedmiokrotny mistrz świata Lewis Hamilton, tworząc z Charlesem Leclerkiem jeden z najbardziej formidable duetów w paddocku. Ferrari to nie tylko zespół F1, ale symbol włoskiej pasji motoryzacyjnej.</div>
+                    </div>
+                </div>
+
+                <!-- Racing Bulls -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\racing bulls.png" alt="Racing Bulls Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Racing Bulls</h3>
+                            <p class="team-country">🇮🇹 Włochy</p>
+                            <p class="team-founded">Założony: 2006</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Faenza</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">0</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Liam Lawson</div>
+                            <div class="driver-badge">Isack Hadjar</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Racing Bulls (wcześniej Toro Rosso, następnie AlphaTauri) to zespół siostrzany Red Bull Racing, założony w 2006 roku po przejęciu zespołu Minardi przez Red Bull. Głównym celem zespołu jest rozwój młodych talentów z programu Red Bull Junior Team. Przez lata zespół był trampoliną dla przyszłych gwiazd F1, takich jak Sebastian Vettel, Daniel Ricciardo, Max Verstappen i Pierre Gasly. Jedyne zwycięstwo w historii zespołu odniesiono na deszczowym torze Monza w 2008 roku, kiedy Sebastian Vettel wygrał swój pierwszy wyścig w F1. W 2025 roku zespół ponownie zmienił nazwę na Racing Bulls, kontynuując swoją misję rozwijania młodych kierowców z programu Red Bull.</div>
+                    </div>
+                </div>
+
+                <!-- Aston Martin -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\aston-martin-cognizant-formula-one-team6133.jpg" alt="Aston Martin Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Aston Martin</h3>
+                            <p class="team-country">🇬🇧 Wielka Brytania</p>
+                            <p class="team-founded">Założony: 2021</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Silverstone</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">0</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Lance Stroll</div>
+                            <div class="driver-badge">Fernando Alonso</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Aston Martin powrócił do Formuły 1 w 2021 roku po przejęciu zespołu Racing Point przez kanadyjskiego miliardera Lawrence'a Strolla, ojca kierowcy Lance'a Strolla. Zespół ma ambitne plany zostania mistrzem świata do 2026 roku, inwestując masywnie w nową fabrykę w Silverstone oraz pozyskując najlepszych specjalistów z innych zespołów, w tym Fernando Alonso oraz wielu inżynierów z Red Bulla. Projekt wspiera również legendarny projektant Adrian Newey, który dołączył do zespołu w 2024 roku. Choć zespół jeszcze nie wygrał wyścigu pod nazwą Aston Martin, ma bogate tradycje - jako Racing Point wygrał GP Sakhir 2020 z Sergio Perezem. Aston Martin reprezentuje brytyjską elegancję i luksus w F1.</div>
+                    </div>
+                </div>
+
+                <!-- Alpine -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\Alpine.svg.png" alt="Alpine Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Alpine</h3>
+                            <p class="team-country">🇫🇷 Francja</p>
+                            <p class="team-founded">Założony: 2021</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Enstone</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">2</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Pierre Gasly</div>
+                            <div class="driver-badge">Franco Colapinto</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Alpine to francuski zespół powstały w 2021 roku z rebrandingu Renault F1 Team. Zespół ma jednak znacznie bogatszą historię - jako Renault wygrywał tytuły mistrzowskie z Fernando Alonso w latach 2005-2006, przerywając dominację Michaela Schumachera i Ferrari. Renault miał też wielkie sukcesy jako dostawca silników, napędzając bolidy Williams w latach 90. oraz Red Bulla w okresie dominacji Sebastiana Vettela. Pod marką Alpine zespół stara się odbudować francuską pozycję w F1, inwestując w młode talenty i rozwój technologiczny. Zespół ma swoją bazę w historycznej fabryce w Enstone, gdzie wcześniej działał zespół Lotus. Alpine reprezentuje francuskie podejście do motorsportu - eleganckie, techniczne i pełne pasji.</div>
+                    </div>
+                </div>
+
+                <!-- Kick Sauber -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\2023_Stake_F1_Team_Kick_Sauber_logo.png" alt="Kick Sauber Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Kick Sauber</h3>
+                            <p class="team-country">🇨🇭 Szwajcaria</p>
+                            <p class="team-founded">Założony: 2013</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Hinwil</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">0</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Nico Hulkenberg</div>
+                            <div class="driver-badge">Gabriel Bortoleto</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Kick Sauber to szwajcarski zespół z długą i szacowną tradycją w Formule 1. Pierwotnie założony przez Petera Saubera w 1993 roku, zespół przez lata służył jako miejsce rozwoju młodych talentów, dając szansę takim kierowcom jak Kimi Räikkönen, Felipe Massa, czy Robert Kubica. W różnych okresach zespół współpracował z Petronas, BMW (jako BMW Sauber 2006-2009) oraz Ferrari jako dostawcą silników. Choć nigdy nie wygrał wyścigu, Sauber regularnie punktował i był szanowany za profesjonalizm i rozwój techniczny. Od 2026 roku zespół stanie się fabryczną drużyną Audi, co oznacza nowy rozdział w historii szwajcarskiej stajni. Sauber słynie również z odkrywania i szkolenia przyszłych mistrzów świata.</div>
+                    </div>
+                </div>
+
+                <!-- Haas -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\Logo_Haas_F1.png" alt="Haas Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Haas</h3>
+                            <p class="team-country">🇺🇸 USA</p>
+                            <p class="team-founded">Założony: 2016</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Kannapolis, NC</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">0</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Esteban Ocon</div>
+                            <div class="driver-badge">Oliver Bearman</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Haas F1 Team to najmłodszy zespół na aktualnym gridzie, założony w 2016 roku przez amerykańskiego przedsiębiorcę Gene'a Haasa, właściciela firmy Haas Automation i zespołu NASCAR. Haas był pierwszym nowym amerykańskim zespołem w F1 od czasów Spirit w latach 80. Zespół obrał unikalną strategię, współpracując ściśle z Ferrari i kupując maksymalną liczbę dozwolonych komponentów, co pozwoliło na stosunkowo szybkie wejście do F1. Najlepszy sezon zespołu to 2018 rok, kiedy zajął 5. miejsce w klasyfikacji konstruktorów z Romainem Grosjeanem i Kevinem Magnussenem. Zespół reprezentuje amerykańskie podejście do motorsportu - pragmatyczne, efektywne kosztowo i skoncentrowane na wynikach. Haas udowodnił, że można konkurować w F1 bez astronomicznych budżetów największych zespołów.</div>
+                    </div>
+                </div>
+
+                <!-- Williams -->
+                <div class="team-card">
+                    <div class="team-header">
+                        <img class="team-logo" src="../logo\Logo_Williams_F1.png" alt="Williams Logo" width="80" height="60">
+                        <div class="team-info">
+                            <h3 class="team-name">Williams</h3>
+                            <p class="team-country">🇬🇧 Wielka Brytania</p>
+                            <p class="team-founded">Założony: 1977</p>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Siedziba</div>
+                            <div class="detail-value">Grove, Oxfordshire</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Tytuły Konstruktorów</div>
+                            <div class="detail-value titles-count">9</div>
+                        </div>
+                    </div>
+                    <div class="drivers-section">
+                        <div class="drivers-label">Kierowcy 2025</div>
+                        <div class="drivers-list">
+                            <div class="driver-badge">Alexander Albon</div>
+                            <div class="driver-badge">Carlos Sainz</div>
+                        </div>
+                    </div>
+                    <div class="team-history">
+                        <div class="history-label">Historia zespołu</div>
+                        <div class="history-text">Williams Grand Prix Engineering zostało założone w 1977 roku przez Sir Franka Williamsa i Patricka Heada. W latach 80. i 90. Williams było prawdziwą potęgą F1, wygrywając 9 tytułów konstruktorów i 7 tytułów kierowców z takimi legendami jak Alan Jones, Keke Rosberg, Nigel Mansell, Alain Prost, Damon Hill i Jacques Villeneuve. Zespół słynął z innowacji technicznych, był pionierem w zastosowaniu aktywnego zawieszenia i zaawansowanych systemów elektronicznych. Po śmierci Ayrton Senny w 1994 roku na torze Imola (w bolidzie Williams), zespół przeszedł trudne chwile. Ostatnie zwycięstwo Williams odnotował w 2012 roku (Pastor Maldonado w Hiszpanii). Po dekadach trudności, w 2025 roku zespół pozyskał doświadczonego Carlos Sainza, co może oznaczać początek powrotu do czołówki.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+    </footer>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

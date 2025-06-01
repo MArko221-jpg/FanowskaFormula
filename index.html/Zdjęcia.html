@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Zdjęć - Strona fanowska Formuły 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <style>
+        .gallery-container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f9f9f9;
+        }
+        
+        .gallery-image {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        button {
+            padding: 8px 15px;
+            background-color: #e10600;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #b30500;
+        }
+        
+        .image-info {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .counter {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        .info-text {
+            text-align: center;
+            color: #666;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            .gallery-container {
+                margin: 15px auto;
+                padding: 15px;
+            }
+            
+            .image-container {
+                height: 300px;
+            }
+            
+            .controls {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+            
+            button {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-container {
+                margin: 10px;
+                padding: 10px;
+            }
+            
+            .image-container {
+                height: 250px;
+            }
+            
+            .controls {
+                gap: 5px;
+            }
+            
+            button {
+                padding: 5px 10px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Galeria Zdjęć F1</h2>
+            <p>Przeglądaj zdjęcia z wyścigów, torów i najważniejszych momentów Formuły 1.</p>
+        
+            <div class="gallery-container">
+                <div class="image-container">
+                    <img id="currentImage" class="gallery-image" src="../zdjęcia1/charles-leclerc-ferrari-sf-24-.jpg" alt="Zdjęcie Formuły 1">
+                </div>
+                
+                <div class="image-info">
+                    <div id="imageTitle">Tytuł zdjęcia</div>
+                    <div class="counter">Zdjęcie <span id="currentIndex">1</span> z <span id="totalImages">5</span></div>
+                </div>
+                
+                <div class="controls">
+                    <button id="firstBtn">Pierwszy</button>
+                    <button id="prevBtn">Poprzedni</button>
+                    <button id="nextBtn">Następny</button>
+                    <button id="lastBtn">Ostatni</button>
+                </div>
+            </div>
+            
+            <p class="info-text">Użyj przycisków lub strzałek na klawiaturze (← →), aby przeglądać zdjęcia.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Kolekcja obrazów z istniejącymi ścieżkami
+        const images = [
+            { src: "../zdjęcia1/charles-leclerc-ferrari-sf-24-.jpg", title: "Bolid Ferrari na torze Monza" },
+            { src: "../zdjęcia1/289345.jpg", title: "Max Verstappen na podium Grand Prix Holandii" },
+            { src: "../zdjęcia1/M268579.jpg", title: "Pit stop zespołu Mercedes" },
+            { src: "../zdjęcia1/51f108ff-ce3d-47e2-8b05-c9648cc221d0.jpeg", title: "Start wyścigu na torze Silverstone" },
+            { src: "../zdjęcia1/2023-zdjecie-grupowe-GP-Bahrajnu-kierowcy.jpg", title: "Wszyscy kierowcy sezonu 2025" }
+        ];
+        
+        let currentIndex = 0;
+        const imageElement = document.getElementById('currentImage');
+        const titleElement = document.getElementById('imageTitle');
+        const currentIndexElement = document.getElementById('currentIndex');
+        const totalImagesElement = document.getElementById('totalImages');
+        
+        // Przyciski nawigacyjne
+        const firstBtn = document.getElementById('firstBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const lastBtn = document.getElementById('lastBtn');
+        
+        // Inicjalizacja galerii
+        function updateGallery() {
+            const currentImage = images[currentIndex];
+            imageElement.src = currentImage.src;
+            imageElement.alt = currentImage.title;
+            titleElement.textContent = currentImage.title;
+            currentIndexElement.textContent = currentIndex + 1;
+            totalImagesElement.textContent = images.length;
+            
+            // Obsługa błędu ładowania obrazu
+            imageElement.onerror = function() {
+                this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iODAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA4MCA2MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjgwIiBoZWlnaHQ9IjYwIiBmaWxsPSIjZjVmNWY1Ii8+Cjx0ZXh0IHg9IjQwIiB5PSIzNSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTk5Ij5CcmFrIHpkasSZY2lhPC90ZXh0Pgo8L3N2Zz4=';
+                this.alt = 'Brak zdjęcia';
+            };
+        }
+        
+        // Obsługa przycisków
+        firstBtn.addEventListener('click', function() {
+            currentIndex = 0;
+            updateGallery();
+        });
+        
+        prevBtn.addEventListener('click', function() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateGallery();
+            }
+        });
+        
+        nextBtn.addEventListener('click', function() {
+            if (currentIndex < images.length - 1) {
+                currentIndex++;
+                updateGallery();
+            }
+        });
+        
+        lastBtn.addEventListener('click', function() {
+            currentIndex = images.length - 1;
+            updateGallery();
+        });
+        
+        // Obsługa klawiszy strzałek
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowLeft') {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    updateGallery();
+                }
+            } else if (event.key === 'ArrowRight') {
+                if (currentIndex < images.length - 1) {
+                    currentIndex++;
+                    updateGallery();
+                }
+            } else if (event.key === 'Home') {
+                currentIndex = 0;
+                updateGallery();
+            } else if (event.key === 'End') {
+                currentIndex = images.length - 1;
+                updateGallery();
+            }
+        });
+        
+        // Inicjalizacja galerii przy załadowaniu strony
+        document.addEventListener('DOMContentLoaded', function() {
+            updateGallery();
+        });
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

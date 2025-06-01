@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formularz Kontaktowy - Strona fanowska Formuły 1</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <link rel="stylesheet" href="../css/stylekonto.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section>
+            <h2>Formularz Kontaktowy</h2>
+            <p>Podziel się z nami swoimi opiniami, sugestiami lub pytaniami dotyczącymi Formuły 1 i naszej strony fanowskiej.</p>
+        
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Dołącz do społeczności F1</h3>
+                    <p>Pola oznaczone gwiazdką (*) są wymagane</p>
+                </div>
+                
+                <form id="contact-form" action="mailto:kontakt@f1fanowska.pl" method="post" enctype="text/plain" onsubmit="return validateForm()">
+                    <!-- 1. Imię i nazwisko (text) -->
+                    <div class="form-group">
+                        <label for="fullName" class="required">Imię i nazwisko</label>
+                        <input type="text" id="fullName" name="fullName" placeholder="Wprowadź swoje imię i nazwisko" required>
+                        <div class="error-message" id="fullName-error">Proszę podać imię i nazwisko</div>
+                    </div>
+                    
+                    <!-- 2. Email (email) -->
+                    <div class="form-group">
+                        <label for="email" class="required">Adres email</label>
+                        <input type="email" id="email" name="email" placeholder="twoj.email@example.com" required>
+                        <div class="error-message" id="email-error">Proszę podać prawidłowy adres email</div>
+                    </div>
+                    
+                    <!-- 3. Data urodzenia (date) -->
+                    <div class="form-group">
+                        <label for="birthdate">Data urodzenia</label>
+                        <input type="date" id="birthdate" name="birthdate">
+                    </div>
+                    
+                    <!-- 4. Ulubiony zespół F1 (select) -->
+                    <div class="form-group">
+                        <label for="favoriteTeam">Ulubiony zespół F1</label>
+                        <select id="favoriteTeam" name="favoriteTeam">
+                            <option value="">-- Wybierz zespół --</option>
+                            <option value="Mercedes">Mercedes</option>
+                            <option value="Red Bull Racing">Red Bull Racing</option>
+                            <option value="Ferrari">Ferrari</option>
+                            <option value="McLaren">McLaren</option>
+                            <option value="Aston Martin">Aston Martin</option>
+                            <option value="Alpine">Alpine</option>
+                            <option value="Williams">Williams</option>
+                            <option value="AlphaTauri">AlphaTauri</option>
+                            <option value="Alfa Romeo">Alfa Romeo</option>
+                            <option value="Haas">Haas F1 Team</option>
+                            <option value="other">Inny</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 5. Ulubiony kierowca (radio) -->
+                    <div class="form-group">
+                        <label>Ulubiony kierowca</label>
+                        <div class="radio-group">
+                            <input type="radio" id="driver-verstappen" name="favoriteDriver" value="Max Verstappen">
+                            <label for="driver-verstappen">Max Verstappen</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="driver-hamilton" name="favoriteDriver" value="Lewis Hamilton">
+                            <label for="driver-hamilton">Lewis Hamilton</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="driver-leclerc" name="favoriteDriver" value="Charles Leclerc">
+                            <label for="driver-leclerc">Charles Leclerc</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="driver-norris" name="favoriteDriver" value="Lando Norris">
+                            <label for="driver-norris">Lando Norris</label>
+                        </div>
+                        <div class="radio-group">
+                            <input type="radio" id="driver-other" name="favoriteDriver" value="Inny">
+                            <label for="driver-other">Inny</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 6. Zainteresowania (checkbox) -->
+                    <div class="form-group">
+                        <label>Co Cię najbardziej interesuje w F1?</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="interest-races" name="interests" value="Wyścigi">
+                            <label for="interest-races">Wyścigi i rywalizacja</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="interest-tech" name="interests" value="Technologia">
+                            <label for="interest-tech">Technologia i inżynieria bolidów</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="interest-drivers" name="interests" value="Kierowcy">
+                            <label for="interest-drivers">Kierowcy i ich kariery</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="interest-history" name="interests" value="Historia">
+                            <label for="interest-history">Historia F1</label>
+                        </div>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="interest-gaming" name="interests" value="Gaming">
+                            <label for="interest-gaming">Gry związane z F1</label>
+                        </div>
+                    </div>
+                    
+                    <!-- 7. Jak długo jesteś fanem F1 (range) -->
+                    <div class="form-group">
+                        <label for="fanYears">Jak długo jesteś fanem F1? <span id="yearsValue">5 lat</span></label>
+                        <input type="range" id="fanYears" name="fanYears" min="0" max="30" value="5" oninput="document.getElementById('yearsValue').textContent = this.value + ' lat'">
+                    </div>
+                    
+                    <!-- 8. Ulubiony kolor zespołu (radio z wizualną reprezentacją) -->
+                    <div class="form-group">
+                        <label>Wybierz swój ulubiony kolor zespołu F1</label>
+                        <div class="team-color-selector">
+                            <input type="radio" id="color-mercedes" name="favoriteColor" value="Mercedes">
+                            <label for="color-mercedes" class="mercedes" title="Mercedes"></label>
+                            
+                            <input type="radio" id="color-redbull" name="favoriteColor" value="Red Bull">
+                            <label for="color-redbull" class="red-bull" title="Red Bull"></label>
+                            
+                            <input type="radio" id="color-ferrari" name="favoriteColor" value="Ferrari">
+                            <label for="color-ferrari" class="ferrari" title="Ferrari"></label>
+                            
+                            <input type="radio" id="color-mclaren" name="favoriteColor" value="McLaren">
+                            <label for="color-mclaren" class="mclaren" title="McLaren"></label>
+                            
+                            <input type="radio" id="color-astonmartin" name="favoriteColor" value="Aston Martin">
+                            <label for="color-astonmartin" class="aston-martin" title="Aston Martin"></label>
+                            
+                            <input type="radio" id="color-alpine" name="favoriteColor" value="Alpine">
+                            <label for="color-alpine" class="alpine" title="Alpine"></label>
+                            
+                            <input type="radio" id="color-williams" name="favoriteColor" value="Williams">
+                            <label for="color-williams" class="williams" title="Williams"></label>
+                            
+                            <input type="radio" id="color-alphatauri" name="favoriteColor" value="AlphaTauri">
+                            <label for="color-alphatauri" class="alphatauri" title="AlphaTauri"></label>
+                            
+                            <input type="radio" id="color-alfaromeo" name="favoriteColor" value="Alfa Romeo">
+                            <label for="color-alfaromeo" class="alfa-romeo" title="Alfa Romeo"></label>
+                            
+                            <input type="radio" id="color-haas" name="favoriteColor" value="Haas">
+                            <label for="color-haas" class="haas" title="Haas"></label>
+                        </div>
+                    </div>
+                    
+                    <!-- 9. Zdjęcie (file) -->
+                    <div class="form-group">
+                        <label for="userPhoto">Twoje zdjęcie (opcjonalnie)</label>
+                        <input type="file" id="userPhoto" name="userPhoto" accept="image/*">
+                    </div>
+                    
+                    <!-- 10. Wiadomość (textarea) -->
+                    <div class="form-group">
+                        <label for="message" class="required">Wiadomość</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Napisz swoją wiadomość, pytanie lub sugestię" required></textarea>
+                        <div class="error-message" id="message-error">Proszę wprowadzić wiadomość</div>
+                    </div>
+                    
+                    <!-- Zgoda na przetwarzanie danych (checkbox) -->
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="consent" name="consent" value="yes" required>
+                            <label for="consent" class="required">Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z polityką prywatności</label>
+                            <div class="error-message" id="consent-error">Musisz wyrazić zgodę na przetwarzanie danych</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Przyciski formularza -->
+                    <div class="form-buttons">
+                        <button type="submit">Wyślij wiadomość</button>
+                        <button type="reset">Wyczyść formularz</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="copyright">
+                <p>&copy; 2025 Kornel Maćkowiak. „Projekt strony internetowej wykonany w ramach
+                zaliczenia przedmiotu MO: TIiSKwE na kierunku Energetyka."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Walidacja formularza
+        function validateForm() {
+            let valid = true;
+            
+            // Walidacja imienia i nazwiska
+            const fullName = document.getElementById('fullName');
+            if (!fullName.value.trim()) {
+                document.getElementById('fullName-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('fullName-error').style.display = 'none';
+            }
+            
+            // Walidacja email
+            const email = document.getElementById('email');
+            const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            if (!emailPattern.test(email.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+            
+            // Walidacja wiadomości
+            const message = document.getElementById('message');
+            if (!message.value.trim()) {
+                document.getElementById('message-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('message-error').style.display = 'none';
+            }
+            
+            // Walidacja zgody
+            const consent = document.getElementById('consent');
+            if (!consent.checked) {
+                document.getElementById('consent-error').style.display = 'block';
+                valid = false;
+            } else {
+                document.getElementById('consent-error').style.display = 'none';
+            }
+            
+            return valid;
+        }
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

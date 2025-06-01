@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/stylemenu.css">
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <span>F1</span>Fanowska strona sportowa
+                </div>
+                
+                <div class="header-controls">
+                    <button class="menu-collapse-btn" id="menu-collapse-btn">
+                        <div class="menu-collapse-icon">
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                            <span class="bar"></span>
+                        </div>
+                    </button>
+                    
+                    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                        <span class="hamburger"></span>
+                    </button>
+                </div>
+                
+                <nav>
+                    <ul id="main-menu">
+                        <li><a href="Menu.html" class="active">Strona główna</a></li>
+                        <li><a href="Zdjęcia.html">Zdjęcia</a></li>
+                        <li><a href="Kalendarz wyścigów.html">Kalendarz wyścigów</a></li>
+                        <li class="has-dropdown">
+                            <a href="Sklep.html" class="dropdown-toggle">Sklep fanowski</a>
+                            <ul>
+                                <li><a href="Sklep.html">Produkty</a></li>
+                                <li><a href="Koszyk.html">Koszyk</a></li>
+                                <li><a href="Kalkulator.html">Kalkulator rabatów</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="Kierowcy.html">Kierowcy</a></li>
+                        <li><a href="Drużyny.html">Drużyny</a></li>
+                        <li><a href="Prezentacja.html">Prezentacja o formule</a></li>
+                        <li><a href="Mapa.html">Tory formuły 1</a></li>
+                        <li class="has-dropdown">
+                            <a href="Konto.html" class="dropdown-toggle">Konto użytkownika</a>
+                            <ul>
+                                <li><a href="Zaloguj się.html">Zaloguj się</a></li>
+                                <li><a href="Zarejestruj się.html">Zarejestruj się</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="menu-scrollbar" id="menu-scrollbar">
+                        <div class="menu-scrollbar-thumb" id="menu-scrollbar-thumb"></div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prezentacja - Historia Formuły 1</title>
+    <style>
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            height: 600px;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            color: white;
+            text-align: center;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            max-width: 80%;
+            max-height: 60%;
+            object-fit: contain;
+            margin: 20px 0;
+        }
+
+        .slide h2 {
+            color: #e10600;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .slide p {
+            font-size: 1em;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .slide:last-child p {
+        font-size: 0.9em;
+        line-height: 1.4;
+        }
+
+        .navigation {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .nav-dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 5px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-dot.active {
+            background-color: #e10600;
+        }
+
+        /* Style dla strzałek nawigacji */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: rgba(225, 6, 0, 0.5);
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            z-index: 100;
+        }
+
+        .arrow:hover {
+            background-color: rgba(225, 6, 0, 0.8);
+        }
+
+        .prev {
+            left: 20px;
+        }
+
+        .next {
+            right: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .arrow {
+                padding: 8px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slideshow-container">
+        <button class="arrow prev" onclick="showSlide(currentSlide - 1)">&#10094;</button>
+        <button class="arrow next" onclick="showSlide(currentSlide + 1)">&#10095;</button>
+
+        <div class="slide active">
+            <h2>Historia Formuły 1</h2>
+            <img src="../historia\1a2590_b11573659d39462fa7cb09bcec027b58~mv2.png" alt="Stare auto F1">
+            <p>W odległych latach dwudziestych i trzydziestych pojawiły się pierwsze przesłanki do powstania Formuły 1. To wtedy drużyny, biorące udział w różnych wyścigach samochodowych Grand Prix, przyjęły regulamin pierwszych mistrzostw świata. Miało to nastąpić w 1941 roku, ale wyścigi nie odbyły się z powodu II wojny światowej. Dopiero w 1946 roku Międzynarodowa Federacja Samochodowa (FIA) stworzyła ostateczny regulamin, który wszedł w życie w 1947 roku.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Historia Formuły 1</h2>
+            <img src="../historia\12_f1_70th_0.jpeg" alt="Legendarne samochody F1">
+            <p>Pierwsze Grand Prix odbyło się w 1950 roku na torze Silverstone w Wielkiej Brytanii, wygrał ten wyścig kierowca Alfa Romeo - Włoch Giuseppe Farina. Farina nieznacznie wyprzedził swojego kolegę z drużyny Juana Manuela Fangio. Nawiasem mówiąc, po tym wyścigu Fangio pięciokrotnie zdobył tytuł mistrza świata. Co ciekawe, w latach 1958-1969 mistrzami świata byli jedynie anglojęzyczni kierowcy - Brytyjczycy, Australijczycy, Nowozelandczycy i Amerykanie.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Słynni Kierowcy</h2>
+            <img src="../historia\Najlepsi-kierowcy-lat-90.jpg" alt="Słynni kierowcy">
+            <p>JFangio, uosobienie precyzji i elegancji złotej ery Formuły 1, pięciokrotny mistrz świata, ustanowił standardy, do których przez dekady porównywano innych kierowców. Senna, symbol pasji, talentu i niezłomnego ducha, poruszał serca fanów swoją niezwykłą jazdą w deszczu i bezkompromisowym stylem. Schumacher natomiast zrewolucjonizował podejście do wyścigów – perfekcyjnie łącząc talent, technologię i żelazną dyscyplinę, zdobył rekordowe tytuły i na lata zdominował tor. Każdy z nich odcisnął niezatarty ślad w świecie Formuły 1, inspirując kolejne pokolenia kierowców i fanów na całym świecie.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Współczesna Era</h2>
+            <img src="../historia\Belgian_GP_1920_ad13062647.png" alt="Współczesna F1">
+            <p>Współczesne bolidy to prawdziwe arcydzieła inżynierii – wyposażone w hybrydowe jednostki napędowe, systemy odzyskiwania energii (ERS) oraz zaawansowaną aerodynamikę, osiągają zawrotne prędkości przy jednoczesnej dbałości o efektywność energetyczną. Formuła 1 coraz śmielej stawia też na ekologię – wprowadza biopaliwa, redukuje emisję dwutlenku węgla i planuje przejście na neutralność klimatyczną do 2030 roku. Mimo tych zmian, duch rywalizacji pozostał niezmieniony – każdy wyścig to intensywna walka o ułamki sekund, strategiczne pojedynki i nieprzewidywalne zwroty akcji, które przyciągają miliony widzów na całym świecie.</p>
+        </div>
+
+        <div class="slide">
+            <h2>Przyszłość F1</h2>
+            <img src="../historia\53329-calendar-blog-image_(1)-b6290281672a561709d17c68db58d030.png" alt="Przyszłość F1">
+            <p>W obliczu globalnych wyzwań klimatycznych Formuła 1 i inne serie wyścigowe intensywnie pracują nad wdrożeniem zrównoważonych rozwiązań. Paliwa syntetyczne i biopaliwa nowej generacji mają zminimalizować ślad węglowy, nie rezygnując z wydajności i emocji na torze. Równolegle rozwija się elektryfikacja – zarówno poprzez popularyzację serii takich jak Formuła E, jak i hybrydowe rozwiązania w F1, które z czasem mogą przekształcić się w pełni elektryczne napędy. Do tego dochodzą nowe formaty weekendów wyścigowych – sprinty, wyścigi uliczne w sercu wielkich metropolii czy innowacyjne modele kwalifikacji – wszystko po to, by jeszcze bardziej zwiększyć dynamikę widowiska i przyciągnąć nowe pokolenia fanów.</p>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <span class="nav-dot active"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+        <span class="nav-dot"></span>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const dots = document.querySelectorAll('.nav-dot');
+
+        function showSlide(n) {
+            // Dodaj efekt przejścia
+            slides[currentSlide].style.opacity = '0';
+            slides[currentSlide].classList.remove('active');
+            dots[currentSlide].classList.remove('active');
+            
+            currentSlide = (n + slides.length) % slides.length;
+            
+            slides[currentSlide].style.opacity = '1';
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+
+        // Obsługa klawiszy strzałek
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+                showSlide(currentSlide - 1);
+            } else if (e.key === 'ArrowRight') {
+                showSlide(currentSlide + 1);
+            } else if (e.key === 'Home') {
+                showSlide(0); // Pierwsza strona
+            } else if (e.key === 'End') {
+                showSlide(slides.length - 1); // Ostatnia strona
+            }
+        });
+
+        // Obsługa kropek nawigacyjnych
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                showSlide(index);
+            });
+        });
+
+        // Dodaj animację przejścia dla slajdów
+        slides.forEach(slide => {
+            slide.style.transition = 'opacity 0.5s ease-in-out';
+            slide.style.opacity = '0';
+        });
+        slides[0].style.opacity = '1';
+
+    </script>
+    <script src="../js/menu.js"></script>
+    <script src="../js/timer.js"></script>
+    <script src="../js/suwak.js"></script>
+</body>
+</html>

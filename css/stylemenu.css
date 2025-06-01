@@ -1,0 +1,351 @@
+/* Reset stylów */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Podstawowe style */
+body {
+    background-color: #f5f5f5;
+    overflow-x: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* Style nagłówka */
+header {
+    background-color: #e10600;
+    color: white;
+    padding: 30px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.logo {
+    font-size: 22.5px;
+    font-weight: bold;
+    z-index: 1001;
+    flex-shrink: 0;
+}
+
+.logo span {
+    color: #000;
+    background-color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1001;
+    margin-left: auto;
+}
+
+/* Hamburger menu button */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background: white;
+    margin: 5px 0;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Style nawigacji */
+nav {
+    flex: 1;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    white-space: nowrap;
+}
+
+nav ul::-webkit-scrollbar {
+    display: none;
+}
+
+nav ul li {
+    position: relative;
+    margin: 0 1px;
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+nav ul li a {
+    display: block;
+    padding: 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: transparent;
+}
+
+nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.15);
+    font-weight: 600;
+    border-bottom: 2px solid white;
+}
+
+nav ul li a:active {
+    background-color: #b30500;
+    transform: translateY(0);
+}
+
+/* Dropdown menu */
+nav ul li ul {
+    display: none;
+    position: fixed;
+    background-color: #333;
+    min-width: 220px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    border-radius: 8px;
+    z-index: 99999;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    pointer-events: none;
+    border: 2px solid #e10600;
+}
+
+nav ul li:hover ul {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+nav ul li ul li {
+    width: 100%;
+    margin: 0;
+}
+
+nav ul li ul li a {
+    padding: 12px 20px;
+    border-bottom: 1px solid #444;
+    border-radius: 0;
+    transform: none;
+    transition: all 0.15s ease;
+}
+
+nav ul li ul li:last-child a {
+    border-bottom: none;
+}
+
+nav ul li ul li a:hover {
+    background-color: #555;
+    transform: translateX(5px);
+    color: #e10600;
+}
+
+/* Responsywność - Tablety */
+@media (max-width: 1024px) {
+    .container {
+        width: 95%;
+        max-width: 1200px;
+    }
+    
+    nav ul li a {
+        padding: 8px;
+        font-size: 11px;
+    }
+}
+
+/* Responsywność - Mobile */
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 1500;
+    }
+    
+    nav ul {
+        display: none;
+        background-color: #e10600;
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        border-radius: 0 0 10px 10px;
+        padding: 10px 0;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+    
+    nav ul.show {
+        display: flex;
+    }
+    
+    nav ul li {
+        width: 100%;
+        margin: 0;
+    }
+    
+    nav ul li a {
+        width: 100%;
+        text-align: left;
+        padding: 15px 20px;
+        border-radius: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-size: 14px;
+    }
+    
+    nav ul li:last-child a {
+        border-bottom: none;
+    }
+    
+    /* Dropdown w menu mobilnym */
+    nav ul li ul {
+        position: relative;
+        display: block;
+        background: rgba(0,0,0,0.2);
+        box-shadow: none;
+        border-radius: 0;
+        min-width: 100%;
+        opacity: 1;
+        transform: none;
+        pointer-events: auto;
+        border: none;
+        border-left: 4px solid #e10600;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        padding: 0;
+    }
+    
+    nav ul li.show-submenu > ul {
+        max-height: 500px;
+        transition: max-height 0.3s ease-in;
+    }
+    
+    /* Strzałka dla elementów z submenu */
+    .dropdown-toggle::after {
+        content: '▼';
+        margin-left: 8px;
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+    
+    .show-submenu .dropdown-toggle::after {
+        transform: rotate(180deg);
+    }
+    
+    /* Style dla głównych linków w submenu */
+    nav ul li ul li.main-link a {
+        background: rgba(225, 6, 0, 0.3);
+        font-weight: 600;
+        border-top: 2px solid #e10600;
+        color: white;
+    }
+
+    nav ul li ul li.main-link a:hover {
+        background: rgba(225, 6, 0, 0.5);
+        color: white;
+        transform: translateX(3px);
+    }
+}
+
+/* Style dla footer */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    margin-top: auto;
+}
+
+footer .container {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+footer .copyright {
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+footer .copyright p {
+    line-height: 1.5;
+}
+
+/* Responsywność dla footer */
+@media (max-width: 768px) {
+    footer .copyright {
+        font-size: 12px;
+    }
+}
